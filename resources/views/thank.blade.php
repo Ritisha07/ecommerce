@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document{{msg}}</title>
+    <title>Result</title>
 </head>
 <body>
     <h1>
-        msg1{{$msg}}
-</h1>
-<a href ="{{url('/')}">">home</a>
+        Your Payment: {{ $msg }} <br>
+        {{$msg1}}
+    </h1>
+
+    <a href="{{url('/') }}"> Home </a>
 </body>
 </html>

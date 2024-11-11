@@ -6,17 +6,18 @@ use Illuminate\Http\Request;
 use App\Models\Order; 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth; // Import Auth facade if not already
+use RemoteMerge\Esewa\Client;
+use RemoteMerge\Esewa\Config as EsewaConfig;
 
 require '../vendor/autoload.php';
 
-use RemoteMerge\Esewa\Client;
 
 class PaymentController extends Controller
 {
-    public function showForm()
-    {
-        return view('payment.form');
-    }
+    // public function showForm()
+    // {
+    //     return view('payment.form');
+    // }
 
     public function proceedPayment(Request $request)
     {
@@ -62,20 +63,32 @@ class PaymentController extends Controller
             'success_url' => $successUrl,
             'failure_url' => $failureUrl,
         ]);
+        // config for development
+        $config = new EsewaConfig([
+            'success_url' => $successUrl,
+            'failure_url' => $failureUrl,
+        ]);
+        
 
+        // initialize eSewa client
+        $esewa = new Client([
+            'merchant_code' => 'EPAYTEST',
+            'success_url' => $successUrl,
+            'failure_url' => $failureUrl,
+        ]);
         // Trigger payment
         $esewa->payment($pid, $amount, 0, 0, 0);
     }
 
     public function successPay()
     {
-        // Check if required parameters exist
-        if (!isset($_GET['oid']) || !isset($_GET['refid']) || !isset($_GET['amt'])) {
-            return redirect()->back()->with('error', 'Missing payment confirmation details.');
-        }
+        // // Check if required parameters exist
+        // if (!isset($_GET['oid']) || !isset($_GET['refid']) || !isset($_GET['amt'])) {
+        //     return redirect()->back()->with('error', 'Missing payment confirmation details.');
+        // }
 
         $pid = $_GET['oid'];
-        $refid = $_GET['refid'];
+        
         $amt = $_GET['amt'];
 
         // Find the order based on product_id
@@ -94,20 +107,20 @@ class PaymentController extends Controller
         if ($update_status) {
             $msg = 'Success';
             $msg1 = 'Payment successful';
-            return view('thankyou', compact('msg', 'msg1'));
+            return view('thank', compact('msg', 'msg1'));
         }
     }
 
     public function failurePay()
     {
-        // Check if required parameters exist
-        if (!isset($_GET['oid']) || !isset($_GET['refid']) || !isset($_GET['amt'])) {
-            return redirect()->back()->with('error', 'Missing payment confirmation details.');
-        }
+        // // Check if required parameters exist
+        // if (!isset($_GET['oid']) || !isset($_GET['refid']) || !isset($_GET['amt'])) {
+        //     return redirect()->back()->with('error', 'Missing payment confirmation details.');
+        // }
 
-        $pid = $_GET['oid'];
-        $refid = $_GET['refid'];
-        $amt = $_GET['amt'];
+        $pid = $_GET['pid'];
+        // $refid = $_GET['refid'];
+        // $amt = $_GET['amt'];
 
         // Find the order based on product_id
         $order = Order::where('product_id', $pid)->first();
@@ -125,7 +138,7 @@ class PaymentController extends Controller
         if ($update_status) {
             $msg = 'Failed';
             $msg1 = 'Payment failed';
-            return view('thankyou', compact('msg', 'msg1'));
+            return view('thank', compact('msg', 'msg1'));
         }
     }
 }

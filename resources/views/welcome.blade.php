@@ -14,19 +14,15 @@
 
     <form action="{{ route('payment.proceed') }}" method="POST">
         @csrf
-        <label for="name">Name of User:</label>
-        <input type="text" id="name" name="name" required> 
-
-        <label for="amount">Amount:</label>
-        <input type="text" id="amount" name="amount" required> 
-         
-
-         <input type="hidden" name="user_id" value="123">
-         <!-- <input type="hidden" name="name" value="ram"> -->
-         <input type="hidden" name="email" value="ram@gmail.com">
-         <!-- <input type="hidden" name="name" value="ram"> -->
-         <!-- <input type="hidden" name="amount" value="5"> -->
-
+        <lable> Enter user_id</label>
+        <input type="text" name="user_id" placeholder="enter id" ><br>
+        <lable> Enter Name</label>
+        <input type="text" name="name" placeholder="Enter Name"><br>
+        <lable> Enter Email</label>
+        <input type="email" name="email" placeholder="Enter email"><br>
+        <lable> Enter Amount</label>
+        <input type="number" name="amount" placeholder="Enter Amount"><br>
+            
         <br><button type="submit">Click for Payment</button>
     </form>
     </body>

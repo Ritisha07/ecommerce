@@ -11,3 +11,4 @@ Route::post('/payment/proceed', [PaymentController::class, 'proceedPayment'])->n
 Route::get('/success', [PaymentController::class, 'successPay']);
 Route::get('/failed', [PaymentController::class, 'failurePay']);
 
+
