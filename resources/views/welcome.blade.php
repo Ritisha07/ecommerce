@@ -23,8 +23,12 @@
         <lable> Enter Amount</label>
         <input type="number" name="amount" placeholder="Enter Amount"><br>
             
-        <br><button type="submit">Click for Payment</button>
+        <br><button type="submit">Click for E-sewa Payment</button>
     </form>
+    <form action="{{ route('payment.proceed') }}" method="POST">
+        <br><button type="submit">Click for Khalti Payment</button>
+    </form>
+
     </body>
 </html>
   
