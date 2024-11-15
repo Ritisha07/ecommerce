@@ -12,3 +12,5 @@ Route::get('/success', [PaymentController::class, 'successPay']);
 Route::get('/failed', [PaymentController::class, 'failurePay']);
 
 
+Route::get('/khalti/pay', [PaymentController::class, 'pay'])->name('khalti.pay');
+Route::get('/khalti/verify', [PaymentController::class, 'verify'])->name('khalti.verify');
