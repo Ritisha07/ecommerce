@@ -6,7 +6,11 @@
 
         <title>E-commerce</title>
         <!-- Tailwind CSS CDN for quick styling -->
+        
         <script src="https://cdn.tailwindcss.com"></script>
+
+        <script src="https://cdn.khalti.com/khalti-checkout.js"></script>
+
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
         <div class="max-w-4xl mx-auto p-8">
@@ -58,10 +62,14 @@
                     "eventHandler": {
                         onSuccess(payload) {
                             // This is where you handle the success response
-                            console.log("Transaction succeeded", payload);
+                           console.log("Transaction succeeded", payload);
+                        
+                           window.location.href = "/payment-success";
                         },
                         onError(error) {
+                            
                             console.log("Transaction failed", error);
+                            window.location.href = "/payment-failure";
                         },
                         onClose() {
                             console.log('Widget is closing');

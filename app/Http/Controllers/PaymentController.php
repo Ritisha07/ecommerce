@@ -148,7 +148,7 @@ class PaymentController extends Controller
     }
 
     //khati
-    public function pay()
+        public function pay()
     {
         // Define the return URL for verification
         $return_url = route('khalti.verify');
@@ -156,62 +156,77 @@ class PaymentController extends Controller
         $purchase_order_name = "your_order_name";
         $amount = 1000; // Amount in paisa (Rs 1 = 100 paisa)
 
-        // Initiate the payment with Khalti
-        $response = Khalti::initiate($return_url, $purchase_order_id, $purchase_order_name, $amount);
-
-        // Use firstOrCreate to handle duplicate entries gracefully
-        KhaltiPayment::firstOrCreate(
-            ['purchase_order_id' => $purchase_order_id],
-            [
-                'purchase_order_name' => $purchase_order_name,
-                'amount' => $amount,
-                'return_url' => $return_url,
-                'payment_url' => $response->payment_url ?? null, // Handle if payment_url is missing
-            ]
-        );
-
-        // Redirect to the payment URL
-        return Redirect::to($response->payment_url ?? route('home'))->withErrors('Payment URL is missing!');
-    }
-
-    public function verify(Request $request)
-    {
-        // Retrieve the pidx from the request
-        $pidx = $request->get('pidx');
-
-        if (!$pidx) {
-            return response()->json(['error' => 'Payment ID (pidx) is missing'], 400);
-        }
-
         try {
-            // Look up the payment using Khalti's API
-            $response = Khalti::lookup($pidx);
+            // Initiate the payment with Khalti
+            $response = Khalti::initiate($return_url, $purchase_order_id, $purchase_order_name, $amount);
 
-            // Check if response is an array or object
-            $purchaseOrderId = is_array($response)
-                ? ($response['purchase_order_id'] ?? null)
-                : ($response->purchase_order_id ?? null);
+            // Check if the response contains the payment URL
+            if (isset($response->payment_url)) {
+                // Use firstOrCreate to handle duplicate entries gracefully
+                KhaltiPayment::firstOrCreate(
+                    ['purchase_order_id' => $purchase_order_id],
+                    [
+                        'purchase_order_name' => $purchase_order_name,
+                        'amount' => $amount,
+                        'return_url' => $return_url,
+                        'payment_url' => $response->payment_url,
+                    ]
+                );
 
-            if (!$purchaseOrderId) {
-                return response()->json(['error' => 'Invalid response from Khalti'], 400);
+                // Redirect to the payment URL
+                return Redirect::to($response->payment_url);
+            } else {
+                // If payment_url is missing, redirect to home with an error message
+                return redirect()->route('home')->withErrors('Payment URL is missing!');
             }
-
-            // Find the payment in the database
-            $payment = KhaltiPayment::where('purchase_order_id', $purchaseOrderId)->first();
-
-            if ($payment) {
-                // Update the payment record with the Khalti response details
-                $payment->update([
-                    'status' => is_array($response) ? $response['status'] : $response->status,
-                ]);
-            }
-
-            // Return success response
-            return response()->json(['message' => 'Payment verified successfully', 'data' => $response]);
         } catch (\Exception $e) {
             // Handle exceptions gracefully
-            return response()->json(['error' => $e->getMessage()], 500);
+            return redirect()->route('home')->withErrors('Error: ' . $e->getMessage());
         }
     }
+
+
+public function verify(Request $request)
+{
+    // Retrieve the pidx from the request
+    $pidx = $request->get('pidx');
+
+    if (!$pidx) {
+        return response()->json(['error' => 'Payment ID (pidx) is missing'], 400);
+    }
+
+    try {
+        // Look up the payment using Khalti's API
+        $response = Khalti::lookup($pidx);
+
+        // Log the raw response for debugging
+        \Log::info('Khalti API Response: ', (array) $response);
+
+        $purchaseOrderId = is_array($response)
+            ? ($response['purchase_order_id'] ?? null)
+            : ($response->purchase_order_id ?? null);
+
+        if (!$purchaseOrderId) {
+            return response()->json(['error' => 'Invalid response from Khalti'], 400);
+        }
+
+        // Find the payment in the database
+        $payment = KhaltiPayment::where('purchase_order_id', $purchaseOrderId)->first();
+
+        if ($payment) {
+            // Update the payment record with the Khalti response details
+            $payment->update([
+                'status' => is_array($response) ? $response['status'] : $response->status,
+            ]);
+        }
+
+        // Redirect with success message after payment verification
+        return redirect()->route('home')->with('success', 'Payment was successful!');
+    } catch (\Exception $e) {
+        // Handle exceptions gracefully
+        return response()->json(['error' => $e->getMessage()], 500);
+    }
+}
+
 
 }
