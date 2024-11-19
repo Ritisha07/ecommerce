@@ -14,3 +14,10 @@ Route::get('/failed', [PaymentController::class, 'failurePay']);
 
 Route::get('/khalti/pay', [PaymentController::class, 'pay'])->name('khalti.pay');
 Route::get('/khalti/verify', [PaymentController::class, 'verify'])->name('khalti.verify');
+Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.page');
+Route::get('/welcome', function () {
+    return view('welcome');
+})->name('welcome');
+// Route::get('/reply2', function () {
+//     return view('reply2');
+// })->name('reply2');
