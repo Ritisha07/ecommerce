@@ -12,17 +12,34 @@ use RemoteMerge\Esewa\Config as EsewaConfig;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\KhaltiPayment;
 use Illuminate\Support\Str;
-
+use App\Models\Payment;
 
 require '../vendor/autoload.php';
 
 
 class PaymentController extends Controller
 {
-    // public function showForm()
-    // {
-    //     return view('payment.form');
-    // }
+    public function showPaymentPage()
+    {
+        return view('payment');
+    }
+
+    public function submitPayment(Request $request)
+    {
+        // Validate the request inputs
+        $validated = $request->validate([
+            'total_amount' => 'required|numeric|min:0',
+            'total_quantity' => 'required|numeric|min:1',
+            'service_charge' => 'required|numeric|min:0',
+            'delivery_charge' => 'required|numeric|min:0',
+            'grand_total' => 'required|numeric|min:0',
+        ]);
+
+        // Store the payment details in the database
+        Payment::create($validated);
+
+        return redirect()->route('payment.page')->with('success', 'Payment details saved successfully!');
+    }
 
     public function proceedPayment(Request $request)
     {
@@ -41,7 +58,11 @@ class PaymentController extends Controller
     
             // Generate unique product ID and retrieve amount from request
             $pid = uniqid();
-            $amount = $request->input('amount');
+            $amount = $request->input('grand_total');
+            $charge = $request->input('delivery_charge');
+            
+            // Ensure $charge is a valid float, default to 0.0 if not provided or null
+            $deliveryAmount = $charge !== null ? (float)$charge : 0.0;
     
             // Ensure amount is provided
             if (!$amount) {
@@ -83,7 +104,7 @@ class PaymentController extends Controller
                 'failure_url' => $failureUrl,
             ]);
             // Trigger payment
-            $esewa->payment($pid, $amount, 0, 0, 0);
+            $esewa->payment($pid, $amount, 0, 0, $deliveryAmount);
         }
     
          catch(\Exception $e) {

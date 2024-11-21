@@ -18,6 +18,8 @@ Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('pay
 Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
+Route::post('/payment/submit', [PaymentController::class, 'submit'])->name('payment.submit');
+
 // Route::get('/reply2', function () {
 //     return view('reply2');
 // })->name('reply2');
