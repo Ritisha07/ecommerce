@@ -20,6 +20,6 @@ Route::get('/welcome', function () {
 })->name('welcome');
 Route::post('/payment/submit', [PaymentController::class, 'submit'])->name('payment.submit');
 
-// Route::get('/reply2', function () {
-//     return view('reply2');
-// })->name('reply2');
+Route::get('/thank-you', function () {
+    return view('thank-you');
+})->name('thank');

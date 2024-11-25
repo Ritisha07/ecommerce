@@ -104,7 +104,7 @@ class PaymentController extends Controller
                 'failure_url' => $failureUrl,
             ]);
             // Trigger payment
-            $esewa->payment($pid, $amount, 0, 0, $deliveryAmount);
+            $esewa->payment($pid, $amount, 0, 0, );
         }
     
          catch(\Exception $e) {
@@ -180,44 +180,52 @@ class PaymentController extends Controller
     }
 
     //khati
-        public function pay()
+    public function pay()
     {
-        // Define the return URL for verification
-        $return_url = route('khalti.verify');
-        $purchase_order_id = Str::uuid(); // Generate a unique transaction ID
-        $purchase_order_name = "your_order_name";
-        $amount = 1000; // Amount in paisa (Rs 1 = 100 paisa)
-
-        try {
-            // Initiate the payment with Khalti
-            $response = Khalti::initiate($return_url, $purchase_order_id, $purchase_order_name, $amount);
-
-            // Check if the response contains the payment URL
-            if (isset($response->payment_url)) {
-                // Use firstOrCreate to handle duplicate entries gracefully
-                KhaltiPayment::firstOrCreate(
-                    ['purchase_order_id' => $purchase_order_id],
-                    [
-                        'purchase_order_name' => $purchase_order_name,
-                        'amount' => $amount,
-                        'return_url' => $return_url,
-                        'payment_url' => $response->payment_url,
-                    ]
-                );
-
-                // Redirect to the payment URL
-                return Redirect::to($response->payment_url);
-            } else {
-                // If payment_url is missing, redirect to home with an error message
-                return redirect()->route('home')->withErrors('Payment URL is missing!');
+        // public function pay(Request $request)
+        // {
+        //     // Retrieve the grand total (in Rs) from the request
+        //     $grand_total_in_rupees = $request->get('grand_total'); 
+        
+            
+        
+        //     // Convert the grand total to paisa (1 Rs = 100 paisa)
+        //     $amount = $grand_total_in_rupees * 100; // Convert to paisa
+        
+            // Define the return URL for verification
+            $return_url = route('khalti.verify');
+            $purchase_order_id = Str::uuid(); // Generate a unique transaction ID
+            $purchase_order_name = "your_order_name"; // You can customize this name if needed
+            $amount = 1000; 
+            
+            try {
+                // Initiate the payment with Khalti
+                $response = Khalti::initiate($return_url, $purchase_order_id, $purchase_order_name, $amount);
+        
+                // Check if the response contains the payment URL
+                if (isset($response->payment_url)) {
+                    // Use firstOrCreate to handle duplicate entries gracefully
+                    KhaltiPayment::firstOrCreate(
+                        ['purchase_order_id' => $purchase_order_id],
+                        [
+                            'purchase_order_name' => $purchase_order_name,
+                            'amount' => $amount,
+                            'return_url' => $return_url,
+                            'payment_url' => $response->payment_url,
+                        ]
+                    );
+        
+                    // Redirect to the payment URL
+                    return Redirect::to($response->payment_url);
+                } else {
+                    // If payment_url is missing, redirect to home with an error message
+                    return redirect()->route('thank')->withErrors('Payment URL is missing!');
+                }
+            } catch (\Exception $e) {
+                // Handle exceptions gracefully
+                return redirect()->route('thank')->withErrors('Error: ' . $e->getMessage());
             }
-        } catch (\Exception $e) {
-            // Handle exceptions gracefully
-            return redirect()->route('home')->withErrors('Error: ' . $e->getMessage());
         }
-    }
-
-
 public function verify(Request $request)
 {
     // Retrieve the pidx from the request
@@ -240,6 +248,7 @@ public function verify(Request $request)
 
         if (!$purchaseOrderId) {
             return response()->json(['error' => 'Invalid response from Khalti'], 400);
+            // return redirect()->route('welcome')->withErrors('Error: ' . $e->getMessage());
         }
 
         // Find the payment in the database

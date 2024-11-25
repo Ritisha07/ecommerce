@@ -136,6 +136,43 @@
         });
 
         // Khalti Payment Integration
+        <!-- Cash Payment Modal -->
+    <div id="cash-modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white rounded-lg p-6 shadow-lg w-96">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Confirm Cash Payment</h3>
+            <p class="text-gray-700 mb-4">Are you sure you want to pay in cash on delivery?</p>
+            <div class="flex justify-end space-x-4">
+                <button id="cancel-payment" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 focus:outline-none">Cancel</button>
+                <button id="confirm-payment" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cashPaymentButton = document.getElementById('cash-payment-button');
+            const modal = document.getElementById('cash-modal');
+            const confirmButton = document.getElementById('confirm-payment');
+            const cancelButton = document.getElementById('cancel-payment');
+            const paymentForm = document.querySelector('form');
+
+            cashPaymentButton.addEventListener('click', function () {
+                modal.classList.remove('hidden');
+            });
+
+            confirmButton.addEventListener('click', function () {
+                modal.classList.add('hidden');
+                paymentForm.submit();
+                window.location.href = "{{ route('welcome') }}";
+            });
+
+            cancelButton.addEventListener('click', function () {
+                modal.classList.add('hidden');
+                window.location.href = "{{ route('welcome') }}";
+            });
+        });
+
+        // Khalti Payment Integration
         var config = {
             "publicKey": "your_public_key",
             "productIdentity": "product_id",
@@ -149,4 +186,18 @@
                 onError(error) {
                     console.log("Transaction failed", error);
                     window.location.href = "/payment-failure";
+                },
+                onClose() {
+                    console.log('Widget is closing');
                 }
+            }
+        };
+
+        var checkout = new KhaltiCheckout(config);
+        var btn = document.getElementById("payment-button");
+        btn.onclick = function() {
+            checkout.show({ amount: 1000 }); // Amount in paisa
+        };
+    </script>
+</body>
+</html>
