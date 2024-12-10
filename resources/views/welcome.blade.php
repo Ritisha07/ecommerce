@@ -97,6 +97,7 @@
         // Also, recalculate when service charge or delivery charge changes
         document.getElementById('service_charge').addEventListener('input', calculateGrandTotal);
         document.getElementById('delivery_charge').addEventListener('input', calculateGrandTotal);
+        document.getElementById('grand_total').value = grandTotal.toFixed(2);
     </script>
 
     <!-- Cash Payment Modal -->
@@ -147,6 +148,7 @@
             </div>
         </div>
     </div>
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -196,8 +198,12 @@
         var checkout = new KhaltiCheckout(config);
         var btn = document.getElementById("payment-button");
         btn.onclick = function() {
-            checkout.show({ amount: 1000 }); // Amount in paisa
+            const grandTotal = parseFloat(document.getElementById('grand_total').value) || 0;
+            checkout.show({
+                amount: grandTotal * 100 // Khalti requires amount in paisa (1 rupee = 100 paisa)
+            });
         };
+    
     </script>
 </body>
 </html>
