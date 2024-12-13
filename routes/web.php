@@ -34,9 +34,13 @@ Route::get('/frontend/privacy', function () {return view('frontend.privacy');
 })->name('privacy');
 Route::get('/frontend/faq', function () {return view('frontend.faq');
 })->name('faq');
-// Route::get('/shop',function({
-//     return view('shop');
-// }) )->name('shop');
+Route::get('/frontend/flash-sale', function () {return view('frontend.flash-sale');
+})->name('flash-sale');
+Route::get('/frontend/sellers', function () {return view('frontend.sellers');
+})->name('sellers');
+Route::get('/frontend/seller-sidebar', function () {return view('frontend.seller-sidebar');
+})->name('seller-sidebar');
+
 
 Route::get('/shop',function(){return view('shop');
 })->name('shop');
