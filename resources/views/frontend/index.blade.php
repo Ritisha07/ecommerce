@@ -16,7 +16,7 @@
     <title>Shopus: Your One-Stop Destination for Fashion and Style</title>
 
 
-    <!--------------- swiper-css ---------------->
+    
     <link rel="stylesheet" href="{{ asset('frontend/css/swiper10-bundle.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap-5.3.2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/nouislider.min.css') }}">
@@ -389,7 +389,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-1.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -498,7 +498,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-2.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -609,7 +609,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-3.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -718,7 +718,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-4.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -827,7 +827,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-5.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -936,7 +936,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-6.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1045,7 +1045,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-7.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1154,7 +1154,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-8.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1296,7 +1296,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-5.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1405,7 +1405,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-3.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1514,7 +1514,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-6.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1623,7 +1623,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-9.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1747,7 +1747,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-5.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1856,7 +1856,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-3.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1965,7 +1965,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-6.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -2074,7 +2074,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-7.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -2183,7 +2183,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-8.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -2292,7 +2292,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-10.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -2533,7 +2533,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-5.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -2642,7 +2642,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-3.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -2751,7 +2751,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-6.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -2860,7 +2860,7 @@
                                 <img src="{{asset('assets/images/homepage-one/product-img/product-img-9.webp')}}"
                                     alt="product-img">
                                 <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -2975,7 +2975,8 @@
                                 <h4 class="wrapper-details">Get 65% Offer
                                     <span class="wrapper-inner-title">& Make New</span> Fusion.
                                 </h4>
-                                <a href="product-sidebar.html" class="shop-btn">Shop Now
+                                <a href="{{ route('product-sidebar') }}" class="shop-btn">Shop Now</a>
+
                                     <span>
                                         <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -3471,7 +3472,7 @@
                     <div class="col-xl-2 col-md-4">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="./assets/images/homepage-one/product-img/product-img-5.webp"
+                                <img src="{{asset('frontend/assets/images/homepage-one/home.webp')}}"
                                     alt="product-img">
                             </div>
                             <div class="product-info">

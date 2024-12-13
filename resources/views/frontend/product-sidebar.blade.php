@@ -15,19 +15,19 @@
 
 
     <!--------------- swiper-css ---------------->
-    <link rel="stylesheet" href="{{url('frontend/css/swiper10-bundle.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/swiper10-bundle.min.css')}}">
 
     <!--------------- bootstrap-css ---------------->
-    <link rel="stylesheet" href="{{'asset(frontend/css/bootstrap-5.3.2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/bootstrap-5.3.2.min.css')}}">
 
     <!---------------------- Range Slider ------------------->
-    <link rel="stylesheet" href="{{'asset(frontendss/nouislider.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontendss/nouislider.min.css')}}">
 
     <!---------------------- Scroll ------------------->
-    <link rel="stylesheet" href="{{'asset(frontendss/aos-3.0.0.css')}}">
+    <link rel="stylesheet" href="{{asset('frontendss/aos-3.0.0.css')}}">
 
     <!--------------- additional-css ---------------->
-    <link rel="stylesheet" href="{{'asset(frontend/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 
 
 
@@ -221,7 +221,9 @@
                         <div class="sidebar-shop-section">
                             <span class="wrapper-subtitle">TRENDY</span>
                             <h5 class="wrapper-heading">Best wireless Shoes</h5>
-                            <a href="seller-sidebar.html" class="shop-btn deal-btn">Shop Now </a>
+                            //can use route also instead of url
+                            <a href="{{ url('seller-sidebar.html') }}" class="shop-btn deal-btn">Shop Now</a>
+
                         </div>
                     </div>
                 </div>

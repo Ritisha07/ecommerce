@@ -10,16 +10,35 @@ use App\Http\Controllers\frontend\ShopController;
 use App\Http\Controllers\frontend\UserDashboardController; 
 use App\Http\Controllers\frontend\ContactController; 
 Route::get('/index', [HomeController::class, 'index']);
-Route::get('/product-sidebar', function () {
-    return view('product-sidebar');
-})->name('product-sidebar');
+Route::get('/frontend/index', [HomeController::class, 'index'])->name('index');
+// Route::get('/frontend/about', [AboutController::class, 'about']);
+Route::get('/frontend/blogs', [BlogController::class, 'blogs'])->name('blogs');
+Route::get('/frontend/blogs-details', [BlogController::class, 'blogsDetail'])->name('blogs-details');
+Route::get('/frontend/product-sidebar', [ShopController::class, 'shop'])->name('product-sidebar');
+Route::get('/frontend/contact-us', [ContactController::class, 'contactUs']);
+Route::get('/frontend/user-profile', [UserDashboardController::class, 'userProfile']);
+Route::get('/frontend/about', function () {return view('frontend.about');
+})->name('about');
 
-
-Route::get('/wishlist', function () {
-    return view('wishlist');
+Route::get('/frontend/wishlist', function () {return view('frontend.wishlist');
 })->name('wishlist');
-Route::get('/shop', function () {
-    return view('shop');
+Route::get('/frontend/compaire', function () {return view('frontend.compaire');
+})->name('compaire');
+Route::get('/frontend/cart', function () {return view('frontend.cart');
+})->name('cart');
+Route::get('/frontend/product-info', function () {return view('frontend.product-info');
+})->name('product-info');
+Route::get('/frontend/terms', function () {return view('frontend.terms');
+})->name('terms');
+Route::get('/frontend/privacy', function () {return view('frontend.privacy');
+})->name('privacy');
+Route::get('/frontend/faq', function () {return view('frontend.faq');
+})->name('faq');
+// Route::get('/shop',function({
+//     return view('shop');
+// }) )->name('shop');
+
+Route::get('/shop',function(){return view('shop');
 })->name('shop');
 
 
