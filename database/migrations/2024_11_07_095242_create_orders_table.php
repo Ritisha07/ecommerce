@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('product_id');
-            $table->stringl('product_name');
+          
             $table->decimal('amount', 8, 2);
             $table->string('esewa_status');
             $table->timestamps();
