@@ -110,7 +110,8 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="footer-order">
                             <div class="logo">
-                                <img src="assets/images/logos/footer-logo.webp" alt="logo">
+                                <!-- <img src="assets/images/logos/footer-logo.webp" alt="logo"> -->
+                                <img src="{{ asset('frontend/assets/images/logos/logo.webp') }}" alt="logo">
                             </div>
                             <div class="footer-link order-link">
                                 <ul>
@@ -208,7 +209,7 @@
                                     </div>
                                     <div class="details">
                                         <h4 class="footer-heading">Phone:</h4>
-                                        <p>+880171889547</p>
+                                        <p>98000000000</p>
                                     </div>
                                 </div>
                             </div>

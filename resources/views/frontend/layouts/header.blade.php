@@ -57,7 +57,7 @@
                 <div class="header-center">
                     <div class="logo">
                         <a href="{{url('public/frontend/index.html')}}">
-                            <img src="./assets/images/logos/logo.webp" alt="logo">
+                        <img src="{{ asset('frontend/assets/images/logos/logo.webp') }}" alt="logo">
                         </a>
                     </div>
                     <div class="header-cart-items">
@@ -1068,41 +1068,41 @@
                                     </span>
                                 </a>
                                 <ul class="header-sub-menu">
-                                    <li><a href="{{url('public/frontend/product-info.html')}}">Product-details</a></li>
-                                    <li><a href="{{url('public/frontend/privacy.html')}}">Privacy Policy</a></li>
-                                    <li><a href="{{url('public/frontend/terms.html')}}">Terms & Condition</a></li>
-                                    <li><a href="{{url('public/frontend/faq.html')}}">FAQ</a></li>
-                                    <li><a href="{{url('public/frontend/product-sidebar.html')}}">Shop Category Icon</a></li>
-                                    <li><a href="{{url('public/frontend/product-sidebar.html')}}">Shop List View</a></li>
+                                    <li><a href="{{url('public/frontendproduct-info.html')}}">Product-details</a></li>
+                                    <li><a href="{{url('public/frontendprivacy.html')}}">Privacy Policy</a></li>
+                                    <li><a href="{{url('public/frontendterms.html')}}">Terms & Condition</a></li>
+                                    <li><a href="{{url('public/frontendfaq.html')}}">FAQ</a></li>
+                                    <li><a href="{{url('public/frontendproduct-sidebar.html')}}">Shop Category Icon</a></li>
+                                    <li><a href="{{url('public/frontendproduct-sidebar.html')}}">Shop List View</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="{{url('public/frontend/about.html')}}">
+                                <a href="{{url('public/frontendabout.html')}}">
                                     <span class="list-text">About</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{url('public/frontend/blogs.html')}}">
+                                <a href="{{url('public/frontendblogs.html')}}">
                                     <span class="list-text">Blog</span>
                                 </a>
                                 <ul class="header-sub-menu">
-                                    <li><a href="{{url('public/frontend/blogs-details.html')}}">Blog-details</a></li>
+                                    <li><a href="{{url('public/frontendblogs-details.html')}}">Blog-details</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="{{url('public/frontend/user-profile.html')}}">
+                                <a href="{{url('public/frontenduser-profile.html')}}">
                                     <span class="list-text">User Dashboard</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{url('public/frontend/contact-us.html')}}">
+                                <a href="{{url('public/frontendcontact-us.html')}}">
                                     <span class="list-text">Contact</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="header-vendor-btn">
-                        <a href="{{url('public/frontend/become-vendor.html')}}" class="shop-btn">
+                        <a href="{{url('public/frontendbecome-vendor.html')}}" class="shop-btn">
                             <span class="list-text shop-text">Became Vendor</span>
                             <span class="icon">
                                 <svg width="24" height="16" viewBox="0 0 24 16" fill="none"
