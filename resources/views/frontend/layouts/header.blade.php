@@ -1,4 +1,4 @@
-  
+
 <!doctype html>
 <html lang="en">
 
@@ -9,21 +9,19 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="{{url('frontend/assets/images/homepage-one/icon.png')}}">
-
     <title>Shopus: Your One-Stop Destination for Fashion and Style</title>
 
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="{{url('frontend/css/swiper-bundle.min.css')}}">
+{{--    <link rel="stylesheet" href="{{url('frontend/css/swiper-bundle.min.css')}}">--}}
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{url('frontend/css/bootstrap-5.3.2.min.css')}}">
 
     <!-- Range Slider CSS -->
-    <link rel="stylesheet" href="{{url('frontend/css/nouislider.min.css')}}">
+{{--    <link rel="stylesheet" href="{{url('frontend/css/nouislider.min.css')}}">--}}
 
     <!-- Scroll Animation CSS -->
-    <link rel="stylesheet" href="{{url('frontend/css/aos-3.0.0.css')}}">
+{{--    <link rel="stylesheet" href="{{url('frontend/css/aos-3.0.0.css')}}">--}}
 
     <!-- Additional CSS -->
     <link rel="stylesheet" href="{{url('frontend/css/style.css')}}">
