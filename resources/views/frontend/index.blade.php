@@ -51,6 +51,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- <img src="{{ asset('frontend/assets/images/homepage-one/imggOne.jpg') }}" alt="Fashion Collection" class="hero-image"> -->
+
                             </div>
                         </div>
                     </div>
