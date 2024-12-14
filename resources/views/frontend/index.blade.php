@@ -21,6 +21,8 @@
                                     <h1 class="wrapper-details">Fashion Collection Summer Sale</h1>
                                     <a href="{{ route('shop') }}" class="shop-btn">Shop Now</a>
                                 </div>
+                                <!-- <img src="{{ asset('frontend/assets/images/homepage-one/imggOne.jpg') }}" alt="Fashion Collection" class="hero-image"> -->
+
                             </div>
                         </div>
                     </div>
