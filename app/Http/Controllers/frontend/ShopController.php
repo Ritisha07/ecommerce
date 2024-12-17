@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 class ShopController extends Controller
 {
     //
-    public function index()
+    public function shop()
     {
 
+        return view('frontend.product-sidebar');
     }
 }

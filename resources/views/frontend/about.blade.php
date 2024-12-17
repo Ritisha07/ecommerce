@@ -63,7 +63,7 @@
                 <div class="row align-items-center gy-5">
                     <div class="col-lg-6">
                         <div class="about-img" data-aos="fade-right">
-                            <img src="./assets/images/homepage-one/about/about-img-1.webp" alt="img">
+                            <img src="{{asset('frontend/assets/images/homepage-one/im.jpg')}}" alt="img">
                         </div>
                     </div>
                     <div class="col-lg-6">

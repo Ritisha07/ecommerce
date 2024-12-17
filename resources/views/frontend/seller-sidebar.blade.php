@@ -8,26 +8,26 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="./assets/images/homepage-one/icon.png">
+    <link rel="icon" href="{{asset('frontend/assets/images/homepage-one/icon.png')}}">
 
     <!--title  -->
     <title>Shopus: Your One-Stop Destination for Fashion and Style</title>
 
 
     <!--------------- swiper-css ---------------->
-    <link rel="stylesheet" href="./css/swiper10-bundle.min.css">
+    <link rel="stylesheet" href="{{asset('frontend/css/swiper10-bundle.min.css')}}">
 
     <!--------------- bootstrap-css ---------------->
-    <link rel="stylesheet" href="./css/bootstrap-5.3.2.min.css">
+    <link rel="stylesheet" href="{{asset('frontend/css/bootstrap-5.3.2.min.css')}}">
 
     <!---------------------- animation------------------->
-    <link rel="stylesheet" href="css/aos-3.0.0.css">
+    <link rel="stylesheet" href="{{asset('frontend/css/aos-3.0.0.css')}}">
 
     <!---------------------- Range Slider ------------------->
-    <link rel="stylesheet" href="css/nouislider.min.css">
+    <link rel="stylesheet" href="{{asset('frontend/css/nouislider.min.css')}}">
 
     <!--------------- additional-css ---------------->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 
 
 </head>
@@ -119,7 +119,7 @@
                         </div>
                         <div class="seller-details">
                             <div class="seller-img">
-                                <img src="./assets/images/homepage-one/seller-img/seller-img-6.png" alt="img">
+                                <img src="{{asset('frontend/assets/images/homepage-one/seller-img/seller-img-6.png')}}" alt="img">
                             </div>
                             <div class="aurthor">
                                 <h5>Rayhans</h5>

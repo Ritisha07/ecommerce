@@ -8,8 +8,12 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     //
-    public function index()
+    public function blogs()
     {
-
+        return view('frontend.blogs');
+    }
+    public function blogsDetail()
+    {
+        return view('frontend.blogs-details');
     }
 }

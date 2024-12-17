@@ -45,11 +45,12 @@
     
     <section class="blog about-blog">
         <div class="container">
-            <div class="blog-bradcrum">
-                <span><a href="index.html">Home</a></span>
-                <span class="devider">/</span>
-                <span><a href="#">Blogs</a></span>
+            <div class="blog-breadcrumb">
+            <span><a href="{{ route('index') }}">Home</a></span>
+            <span class="divider">/</span>
+            <span><a href="{{ route('blogs') }}">Blogs</a></span>
             </div>
+
             <div class="blog-heading about-heading">
                 <h1 class="heading">Our Blogs</h1>
             </div>
@@ -102,12 +103,13 @@
                                         </span>
                                     </div>
                                 </div>
-                                <a href="blogs-details.html" class="about-details wrapper-details">It’s official! The
+                                <a href="{{route('blogs-details')}}" class="about-details wrapper-details">It’s official! The
                                     iPhone 14 Series is on its way! Rumors turned out
                                 </a>
                                 <div class="divider"></div>
 
-                                <a href="#" class="shop-btn">
+                                <a href="{{ route('blogs-details') }}" class="shop-btn">Shop Now</a>
+
                                     Learn More
                                     <span>
                                         <svg width="16" height="11" viewBox="0 0 16 11" fill="none"
@@ -161,12 +163,12 @@
                                         </span>
                                     </div>
                                 </div>
-                                <a href="blogs-details.html" class="about-details wrapper-details">Must-Have WordPress
+                                <a href="{{route('blogs-details')}}" class="about-details wrapper-details">Must-Have WordPress
                                     Plugins for Ecommerce Websites in 2022
                                 </a>
                                 <div class="divider"></div>
 
-                                <a href="blog-details.html" class="shop-btn">
+                                <a href="{{route('blogs-details')}}" class="shop-btn">
                                     Learn More
                                     <span>
                                         <svg width="16" height="11" viewBox="0 0 16 11" fill="none"
@@ -183,7 +185,7 @@
                     <div class="col-lg-4 col-sm-6">
                         <div class="blogs-wrapper product-wrapper" data-aos="fade-up">
                             <div class="wrapper-img">
-                                <img src="./assets/images/homepage-one/about/blog-img-3.webp" alt="">
+                                <img src="{{asset('frontend/assets/images/homepage-one/home.webp')}}" alt="">
                             </div>
                             <div class="wrapper-info">
                                 <div class="wrapper-data">
@@ -220,11 +222,11 @@
                                         </span>
                                     </div>
                                 </div>
-                                <a href="blogs-details.html" class="about-details wrapper-details">15 Best WordPress
+                                <a href="{{route('blogs-details')}}" class="about-details wrapper-details">15 Best WordPress
                                     Newspaper Themes to Look Out for in 2022
                                 </a>
                                 <div class="divider"></div>
-                                <a href="#" class="shop-btn">
+                                <a href="{{route('blogs-details')}}" class="shop-btn">
                                     Learn More
                                     <span>
                                         <svg width="16" height="11" viewBox="0 0 16 11" fill="none"
@@ -278,11 +280,11 @@
                                         </span>
                                     </div>
                                 </div>
-                                <a href="blogs-details.html" class="about-details wrapper-details">6 Best WordPress
+                                <a href="{{route('blogs-details')}}" class="about-details wrapper-details">6 Best WordPress
                                     E-commerce Plugins for Online Stores in 2022
                                 </a>
                                 <div class="divider"></div>
-                                <a href="#" class="shop-btn">
+                                <a href="{{route('blogs-details')}}" class="shop-btn">
                                     Learn More
                                     <span>
                                         <svg width="16" height="11" viewBox="0 0 16 11" fill="none"
@@ -336,10 +338,10 @@
                                         </span>
                                     </div>
                                 </div>
-                                <a href="blogs-details.html" class="about-details wrapper-details">Top 10 Best Professional Ecommerce Blogging Platforms for 2022
+                                <a href="{{route('blogs-details')}}" class="about-details wrapper-details">Top 10 Best Professional Ecommerce Blogging Platforms for 2022
                                 </a>
                                 <div class="divider"></div>
-                                <a href="#" class="shop-btn">
+                                <a href="{{route('blogs-details')}}" class="shop-btn">
                                     Learn More
                                     <span>
                                         <svg width="16" height="11" viewBox="0 0 16 11" fill="none"
@@ -393,11 +395,11 @@
                                         </span>
                                     </div>
                                 </div>
-                                <a href="blogs-details.html" class="about-details wrapper-details">Business-to-consumer Ecommerce that involves selling fight products
+                                <a href="{{route('blogs-details')}}" class="about-details wrapper-details">Business-to-consumer Ecommerce that involves selling fight products
                                 </a>
                                 <div class="divider"></div>
 
-                                <a href="#" class="shop-btn">
+                                <a href="{{route('blogs-details')}}" class="shop-btn">
                                     Learn More
                                     <span>
                                         <svg width="16" height="11" viewBox="0 0 16 11" fill="none"

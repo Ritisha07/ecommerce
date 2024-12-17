@@ -47,7 +47,7 @@
             <div class="blog-bradcrum">
                 <span><a href="index.html">Home</a></span>
                 <span class="devider">/</span>
-                <span><a href="#">Blog details</a></span>
+                <span><a href="{{route('blogs-details')}}">Blog details</a></span>
             </div>
             <div class="blog-heading about-heading">
                 <h1 class="heading">Blog Details</h1>
@@ -175,7 +175,7 @@
                                         id="floatingTextarea" rows="8"></textarea>
                                 </div>
                                 <div class="review-btn">
-                                    <a href="#" class="shop-btn">Submit Review</a>
+                                    <a href="{{route('index')}}" class="shop-btn">Submit Review</a>
                                 </div>
                             </div>
                         </div>
@@ -378,25 +378,25 @@
                                         <hr>
                                         <ul class="category-list">
                                             <li>
-                                                <a href="#">Development</a>
+                                                <a href="{{route('index')}}">Development</a>
                                             </li>
                                             <li>
-                                                <a href="#">Guide</a>
+                                                <a href="{{route('index')}}">Guide</a>
                                             </li>
                                             <li>
-                                                <a href="#">Inspiration</a>
+                                                <a href="{{route( 'index')}}">Inspiration</a>
                                             </li>
                                             <li>
-                                                <a href="#">Latest News</a>
+                                                <a href="{{route('index')}}">Latest News</a>
                                             </li>
                                             <li>
-                                                <a href="#">Revenue</a>
+                                                <a href="{{route('index')}}">Revenue</a>
                                             </li>
                                             <li>
-                                                <a href="#">Start Up</a>
+                                                <a href="{{route('index')}}">Start Up</a>
                                             </li>
                                             <li>
-                                                <a href="#">Technology</a>
+                                                <a href="{{route('index')}}">Technology</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -408,7 +408,7 @@
                                         <p class="blog-paragraph">Follow our newsletter to stay updated about us.</p>
                                         <div class="form">
                                             <input type="text" placeholder="Enter Your Email Address">
-                                            <a href="#" class="shop-btn">Subscribe</a>
+                                            <a href="{{route('index')}}" class="shop-btn">Subscribe</a>
                                         </div>
                                     </div>
                                 </div>
