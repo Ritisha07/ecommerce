@@ -21,7 +21,7 @@ class PaymentController extends Controller
 {
     public function showPaymentPage()
     {
-        return view('payment');
+        return view('payment-form');
     }
 
     public function submitPayment(Request $request)

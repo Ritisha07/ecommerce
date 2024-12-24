@@ -54,7 +54,8 @@
             <div class="container">
                 <div class="header-center">
                     <div class="logo">
-                        <a href="{{url('frontend/index')}}">
+                        
+                        <a href="{{url('/')}}">
                         <img src="{{ asset('frontend/assets/images/logos/logo.webp') }}" alt="logo">
                         </a>
                     </div>
@@ -992,7 +993,7 @@
                     <div class="header-nav-menu">
                         <ul class="menu-list">
                             <li>
-                                <a href="{{url('frontend/index')}}">
+                                <a href="{{url('/')}}">
                                     <span class="list-text">Home</span>
                                 </a>
                             </li>
@@ -1096,6 +1097,11 @@
                             <li>
                                 <a href="{{url('frontend/contact-us')}}">
                                     <span class="list-text">Contact</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{url('payment-form')}}">
+                                    <span class="list-text">payment</span>
                                 </a>
                             </li>
                         </ul>

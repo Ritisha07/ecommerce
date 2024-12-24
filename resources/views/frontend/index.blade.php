@@ -39,113 +39,33 @@
 
     <!--------------- category-section--------------->
     <section class="product-category mt-5">
-        <div class="container">
-            <div class="section-title">
-                <h5>Our Categories</h5>
-                <a href="{{route('product-sidebar')}}" class="view">View All</a>
-            </div>
-            <div class="category-section">
-                <div class="product-wrapper" data-aos="fade-right" data-aos-duration="100">
-                    <div class="wrapper-img">
-                    <!-- <img src="{{asset('frontend/assets/images/homepage-one/category-img/dre')}}sses.webp" alt="dress"> -->
-                        <img src="{{ asset('assets/images/homepage-one/category-img/dresses.webp') }}" alt="dress">
+    <div class="container">
+        <div class="section-title">
+            <h5>Our Categories</h5>
+            <!-- <a href="{{ route('index') }}" class="view">View All</a> -->
+            <a href="{{ route('index') }}" class="view">View All</a>
 
-                    </div>
-                    <div class="wrapper-info">
-                        <a href="{{route('product-sidebar')}}" class="wrapper-details">Dresses</a>
-                    </div>
-                </div>
-                <div class="product-wrapper" data-aos="fade-right" data-aos-duration="200">
-                    <div class="wrapper-img">
-                        <img src="{{asset('assets/images/homepage-one/category-img/bags.webp')}}" alt="dress">
-                    </div>
-                    <div class="wrapper-info">
-                        <a href="{{route('product-sidebar')}}" class="wrapper-details">Leather Bags</a>
-                    </div>
-                </div>
-                <div class="product-wrapper" data-aos="fade-right" data-aos-duration="300">
-                    <div class="wrapper-img">
-                        <img src="{{asset('assets/images/homepage-one/category-img/sweaters.webp')}}" alt="dress">
-                    </div>
-                    <div class="wrapper-info">
-                        <a href="{{route('product-sidebar')}}" class="wrapper-details">Sweaters</a>
-                    </div>
-                </div>
-                <div class="product-wrapper" data-aos="fade-right" data-aos-duration="400">
-                    <div class="wrapper-img">
-                        <img src="{{asset('assets/images/homepage-one/category-img/shoes.webp')}}" alt="dress">
-                    </div>
-                    <div class="wrapper-info">
-                        <a href="{{route('product-sidebar')}}" class="wrapper-details">Boots</a>
-                    </div>
-                </div>
-                <div class="product-wrapper" data-aos="fade-right" data-aos-duration="500">
-                    <div class="wrapper-img">
-                        <img src="{{asset('assets/images/homepage-one/category-img/gift.webp')}}" alt="dress">
-                    </div>
-                    <div class="wrapper-info">
-                        <a href="{{route('product-sidebar')}}" class="wrapper-details">Gift for Him</a>
-                    </div>
-                </div>
-                <div class="product-wrapper" data-aos="fade-right" data-aos-duration="600">
-                    <div class="wrapper-img">
-                        <img src="{{asset('assets/images/homepage-one/category-img/sneakers.webp')}}" alt="dress">
-                    </div>
-                    <div class="wrapper-info">
-                        <a href="{{route('product-sidebar')}}" class="wrapper-details">Sneakers</a>
-                    </div>
-                </div>
+        </div>
+        <div class="category-section">
+            @foreach ($categories as $category)
                 <div class="product-wrapper" data-aos="fade-right" data-aos-duration="100">
                     <div class="wrapper-img">
-                        <img src="{{asset('assets/images/homepage-one/category-img/watch.webp')}}" alt="dress">
+                        <a href="{{ route('product-sidebar', ['id' => $category->id]) }}">
+                            <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}">
+                        </a>
                     </div>
                     <div class="wrapper-info">
-                        <a href="{{route('product-sidebar')}}" class="wrapper-details">Watch</a>
+                        <a href="{{ route('product-sidebar', ['id' => $category->id]) }}" class="wrapper-details">
+                            {{ $category->name }}
+                        </a>
                     </div>
                 </div>
-                <div class="product-wrapper" data-aos="fade-right" data-aos-duration="200">
-                    <div class="wrapper-img">
-                        <img src="{{asset('assets/images/homepage-one/category-img/ring.webp')}}" alt="dress">
-                    </div>
-                    <div class="wrapper-info">
-                        <a href="{{route('product-sidebar')}}" class="wrapper-details">Gold Rings</a>
-                    </div>
-                </div>
-                <div class="product-wrapper" data-aos="fade-right" data-aos-duration="300">
-                    <div class="wrapper-img">
-                        <img src="{{asset('assets/images/homepage-one/category-img/cap.webp')}}" alt="dress">
-                    </div>
-                    <div class="wrapper-info">
-                        <a href="{{route('product-sidebar')}}" class="wrapper-details">Cap</a>
-                    </div>
-                </div>
-                <div class="product-wrapper" data-aos="fade-right" data-aos-duration="400">
-                    <div class="wrapper-img">
-                        <img src="{{asset('assets/images/homepage-one/category-img/glass.webp')}}" alt="dress">
-                    </div>
-                    <div class="wrapper-info">
-                        <a href="{{route('product-sidebar')}}" class="wrapper-details">Sunglass</a>
-                    </div>
-                </div>
-                <div class="product-wrapper" data-aos="fade-right" data-aos-duration="500">
-                    <div class="wrapper-img">
-                        <img src="{{asset('assets/images/homepage-one/category-img/baby.webp')}}" alt="dress">
-                    </div>
-                    <div class="wrapper-info">
-                        <a href="{{route('product-sidebar')}}" class="wrapper-details">Baby Shop</a>
-                    </div>
-                </div>
-                <div class="product-wrapper" data-aos="fade-right" data-aos-duration="200">
-                    <div class="wrapper-img">
-                        <img src="{{asset('assets/images/homepage-one/category-img/bags.webp')}}" alt="dress">
-                    </div>
-                    <div class="wrapper-info">
-                        <a href="{{route('product-sidebar')}}" class="wrapper-details">Leather Bags</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
-    </section>
+    </div>
+</section>
+
+
     <!--------------- category-section-end--------------->
 
     <!--------------- brand-section--------------->
@@ -153,27 +73,27 @@
         <div class="container">
             <div class="section-title">
                 <h5>Brand of Prodcuts</h5>
-                <a href="{{route('product-sidebar')}}" class="view">View All</a>
+                <a href="{{route('index')}}" class="view">View All</a>
             </div>
             <div class="brand-section">
                 <div class="product-wrapper">
                     <div class="wrapper-img">
                         <a href="{{route('product-sidebar')}}">
-                            <img src="{{asset('assets/images/homepage-one/brand-img-1.webp')}}" alt="img">
+                            <img src="{{asset('frontend/assets/images/homepage-one/brand-img-1.webp')}}" alt="img">
                         </a>
                     </div>
                 </div>
                 <div class="product-wrapper">
                     <div class="wrapper-img">
                         <a href="{{route('product-sidebar')}}">
-                            <img src="{{asset('assets/images/homepage-one/brand-img-2.webp')}}" alt="img">
+                            <img src="{{asset('frontend/assets/images/homepage-one/brand-img-2.webp')}}" alt="img">
                         </a>
                     </div>
                 </div>
                 <div class="product-wrapper">
                     <div class="wrapper-img">
                         <a href="{{route('product-sidebar')}}">
-                            <img src="{{asset('assets/images/homepage-one/brand-img-3.webp')}}" alt="img">
+                            <img src="{{asset('frontend/assets/images/homepage-one/brand-img-3.webp')}}" alt="img">
                         </a>
                     </div>
                 </div>
@@ -201,42 +121,42 @@
                 <div class="product-wrapper">
                     <div class="wrapper-img">
                         <a href="{{route('product-sidebar')}}">
-                            <img src="{{asset('assets/images/homepage-one/brand-img-7.webp')}}" alt="img">
+                            <img src="{{asset('frontend/assets/images/homepage-one/brand-img-7.webp')}}" alt="img">
                         </a>
                     </div>
                 </div>
                 <div class="product-wrapper">
                     <div class="wrapper-img">
                         <a href="{{route('product-sidebar')}}">
-                            <img src="{{asset('assets/images/homepage-one/brand-img-8.webp')}}" alt="img">
+                            <img src="{{asset('frontend/assets/images/homepage-one/brand-img-8.webp')}}" alt="img">
                         </a>
                     </div>
                 </div>
                 <div class="product-wrapper">
                     <div class="wrapper-img">
                         <a href="{{route('product-sidebar')}}">
-                            <img src="{{asset('assets/images/homepage-one/brand-img-9.webp')}}" alt="img">
+                            <img src="{{asset('frontend/assets/images/homepage-one/brand-img-9.webp')}}" alt="img">
                         </a>
                     </div>
                 </div>
                 <div class="product-wrapper">
                     <div class="wrapper-img">
                         <a href="{{route('product-sidebar')}}">
-                            <img src="{{asset('assets/images/homepage-one/brand-img-10.webp')}}" alt="img">
+                            <img src="{{asset('frontend/assets/images/homepage-one/brand-img-10.webp')}}" alt="img">
                         </a>
                     </div>
                 </div>
                 <div class="product-wrapper">
                     <div class="wrapper-img">
                         <a href="{{route('product-sidebar')}}">
-                            <img src="{{asset('assets/images/homepage-one/brand-img-11.webp')}}" alt="img">
+                            <img src="{{asset('frontend/assets/images/homepage-one/brand-img-11.webp')}}" alt="img">
                         </a>
                     </div>
                 </div>
                 <div class="product-wrapper">
                     <div class="wrapper-img">
                         <a href="{{route('product-sidebar')}}">
-                            <img src="{{asset('assets/images/homepage-one/brand-img-12.webp')}}" alt="img">
+                            <img src="{{asset('frontend/assets/images/homepage-one/brand-img-12.webp')}}" alt="img">
                         </a>
                     </div>
                 </div>
@@ -257,7 +177,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-1.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/imageOne.avif')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -366,7 +286,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-2.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/imageOne.avif')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -477,7 +397,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-3.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/imageOne.avif')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -586,7 +506,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-4.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/imageOne.avif')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -695,7 +615,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-5.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/imageOne.avif')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -804,7 +724,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-6.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/imageOne.avif')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -914,7 +834,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-7.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/imageOne.avif')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -1023,7 +943,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-8.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/imageOne.avif')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -1165,7 +1085,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="product-wrapper" data-aos="fade-right" data-aos-duration="100">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-5.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/seller-img/seller-img-5.png')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}}" class="cart cart-item">
@@ -1274,7 +1194,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="product-wrapper" data-aos="fade-right" data-aos-duration="200">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-3.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-3.webp')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -1383,7 +1303,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="product-wrapper" data-aos="fade-right" data-aos-duration="300">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-6.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-6.webp')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -1493,7 +1413,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="product-wrapper" data-aos="fade-right" data-aos-duration="400">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-9.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-9.webp')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -1617,7 +1537,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="product-wrapper" data-aos="fade-right">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-5.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-5.webp')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -1726,7 +1646,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="product-wrapper" data-aos="fade-right">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-3.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-3.webp')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -1835,7 +1755,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="product-wrapper" data-aos="fade-right">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-6.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-6.webp')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -1944,7 +1864,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="product-wrapper" data-aos="fade-right">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-7.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-7.webp')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -2053,7 +1973,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="product-wrapper" data-aos="fade-right">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-8.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-8.webp')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -2162,7 +2082,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="product-wrapper" data-aos="fade-right">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-10.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-10.webp')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -2396,14 +2316,14 @@
         <div class="container">
             <div class="section-title">
                 <h5>Best Sell in this Week</h5>
-                <a href="{{route('product-sidebar')}}" class="view">View All</a>
+                <a href="{{route('seller-sidebar')}}" class="view">View All</a>
             </div>
             <div class="weekly-sale-section">
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-5.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-5.webp')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -2512,7 +2432,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-3.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-3.webp')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -2621,7 +2541,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-6.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-6.webp')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -2730,7 +2650,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-9.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-9.webp')}}"
                                      alt="product-img">
                                 <div class="product-cart-items">
                                     <a href="{{route('cart')}}" class="cart cart-item">
@@ -2904,7 +2824,7 @@
                     <div class="col-xl-2 col-md-4">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-9.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-9.webp')}}"
                                      alt="product-img">
                             </div>
                             <div class="product-info">
@@ -2944,7 +2864,7 @@
                     <div class="col-xl-2 col-md-4">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-10.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-10.webp')}}"
                                      alt="product-img">
                             </div>
                             <div class="product-info">
@@ -2984,7 +2904,7 @@
                     <div class="col-xl-2 col-md-4">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-2.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-2.webp')}}"
                                      alt="product-img">
                             </div>
                             <div class="product-info">
@@ -3024,7 +2944,7 @@
                     <div class="col-xl-2 col-md-4">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-4.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-4.webp')}}"
                                      alt="product-img">
                             </div>
                             <div class="product-info">
@@ -3064,7 +2984,7 @@
                     <div class="col-xl-2 col-md-4">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-1.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-1.webp')}}"
                                      alt="product-img">
                             </div>
                             <div class="product-info">
@@ -3104,7 +3024,7 @@
                     <div class="col-xl-2 col-md-4">
                         <div class="product-wrapper" data-aos="fade-up">
                             <div class="product-img">
-                                <img src="{{asset('assets/images/homepage-one/product-img/product-img-11.webp')}}"
+                                <img src="{{asset('frontend/assets/images/homepage-one/product-img/product-img-11.webp')}}"
                                      alt="product-img">
                             </div>
                             <div class="product-info">
