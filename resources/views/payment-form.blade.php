@@ -127,12 +127,12 @@
             confirmButton.addEventListener('click', function () {
                 modal.classList.add('hidden');
                 paymentForm.submit();
-                window.location.href = "{{ route('welcome') }}";
+                window.location.href = "{{ route('payment-form') }}";
             });
 
             cancelButton.addEventListener('click', function () {
                 modal.classList.add('hidden');
-                window.location.href = "{{ route('welcome') }}";
+                window.location.href = "{{ route('payment-form') }}";
             });
         });
 
@@ -165,12 +165,12 @@
             confirmButton.addEventListener('click', function () {
                 modal.classList.add('hidden');
                 paymentForm.submit();
-                window.location.href = "{{ route('welcome') }}";
+                window.location.href = "{{ route('payment-form') }}";
             });
 
             cancelButton.addEventListener('click', function () {
                 modal.classList.add('hidden');
-                window.location.href = "{{ route('welcome') }}";
+                window.location.href = "{{ route('payment-form') }}";
             });
         });
 

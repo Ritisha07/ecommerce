@@ -1,4 +1,4 @@
-  
+
 <!doctype html>
 <html lang="en">
 
@@ -9,24 +9,22 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="{{url('public/frontend/assets/images/homepage-one/icon.png')}}">
-
     <title>Shopus: Your One-Stop Destination for Fashion and Style</title>
 
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="{{url('public/frontend/css/swiper-bundle.min.css')}}">
+{{--    <link rel="stylesheet" href="{{url('frontend/css/swiper-bundle.min.css')}}">--}}
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{url('public/frontend/css/bootstrap-5.3.2.min.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/css/bootstrap-5.3.2.min.css')}}">
 
     <!-- Range Slider CSS -->
-    <link rel="stylesheet" href="{{url('public/frontend/css/nouislider.min.css')}}">
+{{--    <link rel="stylesheet" href="{{url('frontend/css/nouislider.min.css')}}">--}}
 
     <!-- Scroll Animation CSS -->
-    <link rel="stylesheet" href="{{url('public/frontend/css/aos-3.0.0.css')}}">
+{{--    <link rel="stylesheet" href="{{url('frontend/css/aos-3.0.0.css')}}">--}}
 
     <!-- Additional CSS -->
-    <link rel="stylesheet" href="{{url('public/frontend/css/style.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/css/style.css')}}">
 </head>
 
 <body>
@@ -39,14 +37,14 @@
             <div class="container">
                 <div class="header-top">
                     <div class="header-profile">
-                        <a href="{{url('public/frontend/user-profile.html')}}"><span>Account</span></a>
-                        <a href="{{url('public/frontend/order.html')}}"><span>Track Order</span></a>
-                        <a href="{{url('public/frontend/faq.html')}}"><span>Support</span></a>
+                        <a href="{{url('frontend/user-profile')}}"><span>Account</span></a>
+                        <a href="{{url('frontend/order')}}"><span>Track Order</span></a>
+                        <a href="{{url('frontend/faq')}}"><span>Support</span></a>
                     </div>
                     <div class="header-contact d-none d-lg-block">
-                        <a href="{{url('public/frontend#')}}">
+                        <a href="{{url('frontend#')}}">
                             <span>Need help? Call us:</span>
-                            <span class="contact-number">+00645 4568</span>
+                            <span class="contact-number">9800000000</span>
                         </a>
                     </div>
                 </div>
@@ -56,7 +54,8 @@
             <div class="container">
                 <div class="header-center">
                     <div class="logo">
-                        <a href="{{url('public/frontend/index.html')}}">
+                        
+                        <a href="{{url('/')}}">
                         <img src="{{ asset('frontend/assets/images/logos/logo.webp') }}" alt="logo">
                         </a>
                     </div>
@@ -89,14 +88,14 @@
                                             <input type="text" placeholder="Search Products.........">
                                             <div class="divider"></div>
                                             <button type="button">All Categories</button>
-                                            <a href="{{url('public/frontend#')}}" class="shop-btn">Search</a>
+                                            <a href="{{url('frontend#')}}" class="shop-btn">Search</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="header-compaire">
-                            <a href="{{url('public/frontend/compaire.html')}}" class="cart-item">
+                            <a href="{{url('frontend/compaire')}}" class="cart-item">
                                 <span>
                                     <svg width="34" height="27" viewBox="0 0 34 27" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -122,7 +121,7 @@
                             </a>
                         </div>
                         <div class="header-favourite">
-                            <a href="{{url('public/frontend/wishlist.html')}}" class="cart-item">
+                            <a href="{{url('frontend/wishlist')}}" class="cart-item">
                                 <span>
                                     <svg width="35" height="27" viewBox="0 0 35 27" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -141,7 +140,7 @@
                             </a>
                         </div>
                         <div class="header-cart">
-                            <a href="{{url('public/frontend/cart.html')}}" class="cart-item">
+                            <a href="{{url('frontend/cart')}}" class="cart-item">
                                 <span>
                                     <svg width="35" height="28" viewBox="0 0 35 28" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -170,8 +169,9 @@
                                     <div class="wrapper">
                                         <div class="wrapper-item">
                                             <div class="wrapper-img">
-                                                <img src="assets/images/homepage-one/product-img/product-img-1.webp"
-                                                    alt="img">
+                                            <img src="{{ asset('assets/images/homepage-one/product-img/product-img-1.webp') }}"
+                                             alt="img">
+
                                             </div>
                                             <div class="wrapper-content">
                                                 <h5 class="wrapper-title">Classic Design Skart</h5>
@@ -264,14 +264,14 @@
                                         <h5 class="wrapper-title">$60</h5>
                                     </div>
                                     <div class="cart-btn">
-                                        <a href="{{url('public/frontend/cart.html')}}" class="shop-btn view-btn">View Cart</a>
-                                        <a href="{{url('public/frontend/checkout.html')}}" class="shop-btn checkout-btn">Checkout Now</a>
+                                        <a href="{{url('frontend/cart')}}" class="shop-btn view-btn">View Cart</a>
+                                        <a href="{{url('frontend/checkout')}}" class="shop-btn checkout-btn">Checkout Now</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="header-user">
-                            <a href="{{url('public/frontend/user-profile.html')}}">
+                            <a href="{{url('frontend/user-profile')}}">
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                                         class="fill-current">
@@ -300,10 +300,10 @@
                         </svg>
                     </span>
                 </button>
-                <a href="{{url('public/frontend/index.html')}}" class="mobile-header-logo">
+                <a href="{{url('frontend/index')}}" class="mobile-header-logo">
                     <img src="./assets/images/logos/logo.webp" alt="logo">
                 </a>
-                <a href="{{url('public/frontend/cart.html')}}" class="header-cart cart-item">
+                <a href="{{url('frontend/cart')}}" class="header-cart cart-item">
                     <span>
                         <svg width="35" height="28" viewBox="0 0 35 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -331,7 +331,7 @@
                     <div class="header-top">
                         <div class="header-cart ">
                             <div class="header-compaire">
-                                <a href="{{url('public/frontend/compaire.html')}}" class="cart-item">
+                                <a href="{{url('frontend/compaire')}}" class="cart-item">
                                     <span>
                                         <svg width="34" height="27" viewBox="0 0 34 27" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -354,7 +354,7 @@
                                 </a>
                             </div>
                             <div class="header-favourite">
-                                <a href="{{url('public/frontend/wishlist.html')}}" class="cart-item">
+                                <a href="{{url('frontend/wishlist')}}" class="cart-item">
                                     <span>
                                         <svg width="35" height="27" viewBox="0 0 35 27" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -391,7 +391,7 @@
                     <div class="category-dropdown">
                         <ul class="category-list">
                             <li class="category-list-item">
-                                <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                <a href="{{url('frontend/product-sidebar')}}">
                                     <div class="dropdown-item d-flex justify-content-between align-items-center">
                                         <div class="dropdown-list-item d-flex">
                                             <span class="dropdown-img">
@@ -417,7 +417,7 @@
                                 </a>
                             </li>
                             <li class="category-list-item">
-                                <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                <a href="{{url('frontend/product-sidebar')}}">
                                     <div class="dropdown-item d-flex justify-content-between align-items-center">
                                         <div class="dropdown-list-item d-flex">
                                             <span class="dropdown-img">
@@ -443,7 +443,7 @@
                                 </a>
                             </li>
                             <li class="category-list-item">
-                                <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                <a href="{{url('frontend/product-sidebar')}}">
                                     <div class="dropdown-item d-flex justify-content-between align-items-center">
                                         <div class="dropdown-list-item d-flex">
                                             <span class="dropdown-img">
@@ -469,7 +469,7 @@
                                 </a>
                             </li>
                             <li class="category-list-item">
-                                <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                <a href="{{url('frontend/product-sidebar')}}">
                                     <div class="dropdown-item d-flex justify-content-between align-items-center">
                                         <div class="dropdown-list-item d-flex">
                                             <span class="dropdown-img">
@@ -495,7 +495,7 @@
                                 </a>
                             </li>
                             <li class="category-list-item">
-                                <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                <a href="{{url('frontend/product-sidebar')}}">
                                     <div class="dropdown-item d-flex justify-content-between align-items-center">
                                         <div class="dropdown-list-item d-flex">
                                             <span class="dropdown-img">
@@ -521,7 +521,7 @@
                                 </a>
                             </li>
                             <li class="category-list-item">
-                                <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                <a href="{{url('frontend/product-sidebar')}}">
                                     <div class="dropdown-item d-flex justify-content-between align-items-center">
                                         <div class="dropdown-list-item d-flex">
                                             <span class="dropdown-img">
@@ -547,7 +547,7 @@
                                 </a>
                             </li>
                             <li class="category-list-item">
-                                <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                <a href="{{url('frontend/product-sidebar')}}">
                                     <div class="dropdown-item d-flex justify-content-between align-items-center">
                                         <div class="dropdown-list-item d-flex">
                                             <span class="dropdown-img">
@@ -573,7 +573,7 @@
                                 </a>
                             </li>
                             <li class="category-list-item">
-                                <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                <a href="{{url('frontend/product-sidebar')}}">
                                     <div class="dropdown-item d-flex justify-content-between align-items-center">
                                         <div class="dropdown-list-item d-flex">
                                             <span class="dropdown-img">
@@ -599,7 +599,7 @@
                                 </a>
                             </li>
                             <li class="category-list-item">
-                                <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                <a href="{{url('frontend/product-sidebar')}}">
                                     <div class="dropdown-item d-flex justify-content-between align-items-center">
                                         <div class="dropdown-list-item d-flex">
                                             <span class="dropdown-img">
@@ -624,7 +624,7 @@
                                 </a>
                             </li>
                             <li class="category-list-item">
-                                <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                <a href="{{url('frontend/product-sidebar')}}">
                                     <div class="dropdown-item d-flex justify-content-between align-items-center">
                                         <div class="dropdown-list-item d-flex">
                                             <span class="dropdown-img">
@@ -650,7 +650,7 @@
                                 </a>
                             </li>
                             <li class="category-list-item">
-                                <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                <a href="{{url('frontend/product-sidebar')}}">
                                     <div class="dropdown-item d-flex justify-content-between align-items-center">
                                         <div class="dropdown-list-item d-flex">
                                             <span class="dropdown-img">
@@ -702,7 +702,7 @@
                         <div class="category-dropdown position-absolute" id="subMenu">
                             <ul class="category-list">
                                 <li class="category-list-item">
-                                    <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                    <a href="{{url('frontend/product-sidebar')}}">
                                         <div class="dropdown-item">
                                             <div class="dropdown-list-item">
                                                 <span class="dropdown-img">
@@ -728,7 +728,7 @@
                                     </a>
                                 </li>
                                 <li class="category-list-item">
-                                    <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                    <a href="{{url('frontend/product-sidebar')}}">
                                         <div class="dropdown-item d-flex justify-content-between align-items-center">
                                             <div class="dropdown-list-item d-flex">
                                                 <span class="dropdown-img">
@@ -754,7 +754,7 @@
                                     </a>
                                 </li>
                                 <li class="category-list-item">
-                                    <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                    <a href="{{url('frontend/product-sidebar')}}">
                                         <div class="dropdown-item d-flex justify-content-between align-items-center">
                                             <div class="dropdown-list-item d-flex">
                                                 <span class="dropdown-img">
@@ -780,7 +780,7 @@
                                     </a>
                                 </li>
                                 <li class="category-list-item">
-                                    <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                    <a href="{{url('frontend/product-sidebar')}}">
                                         <div class="dropdown-item d-flex justify-content-between align-items-center">
                                             <div class="dropdown-list-item d-flex">
                                                 <span class="dropdown-img">
@@ -806,7 +806,7 @@
                                     </a>
                                 </li>
                                 <li class="category-list-item">
-                                    <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                    <a href="{{url('frontend/product-sidebar')}}">
                                         <div class="dropdown-item d-flex justify-content-between align-items-center">
                                             <div class="dropdown-list-item d-flex">
                                                 <span class="dropdown-img">
@@ -832,7 +832,7 @@
                                     </a>
                                 </li>
                                 <li class="category-list-item">
-                                    <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                    <a href="{{url('frontend/product-sidebar')}}">
                                         <div class="dropdown-item d-flex justify-content-between align-items-center">
                                             <div class="dropdown-list-item d-flex">
                                                 <span class="dropdown-img">
@@ -858,7 +858,7 @@
                                     </a>
                                 </li>
                                 <li class="category-list-item">
-                                    <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                    <a href="{{url('frontend/product-sidebar')}}">
                                         <div class="dropdown-item d-flex justify-content-between align-items-center">
                                             <div class="dropdown-list-item d-flex">
                                                 <span class="dropdown-img">
@@ -884,7 +884,7 @@
                                     </a>
                                 </li>
                                 <li class="category-list-item">
-                                    <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                    <a href="{{url('frontend/product-sidebar')}}">
                                         <div class="dropdown-item d-flex justify-content-between align-items-center">
                                             <div class="dropdown-list-item d-flex">
                                                 <span class="dropdown-img">
@@ -910,7 +910,7 @@
                                     </a>
                                 </li>
                                 <li class="category-list-item">
-                                    <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                    <a href="{{url('frontend/product-sidebar')}}">
                                         <div class="dropdown-item d-flex justify-content-between align-items-center">
                                             <div class="dropdown-list-item d-flex">
                                                 <span class="dropdown-img">
@@ -936,7 +936,7 @@
                                     </a>
                                 </li>
                                 <li class="category-list-item">
-                                    <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                    <a href="{{url('frontend/product-sidebar')}}">
                                         <div class="dropdown-item d-flex justify-content-between align-items-center">
                                             <div class="dropdown-list-item d-flex">
                                                 <span class="dropdown-img">
@@ -962,7 +962,7 @@
                                     </a>
                                 </li>
                                 <li class="category-list-item">
-                                    <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                    <a href="{{url('frontend/product-sidebar')}}">
                                         <div class="dropdown-item d-flex justify-content-between align-items-center">
                                             <div class="dropdown-list-item d-flex">
                                                 <span class="dropdown-img">
@@ -993,12 +993,12 @@
                     <div class="header-nav-menu">
                         <ul class="menu-list">
                             <li>
-                                <a href="{{url('public/frontend/index.html')}}">
+                                <a href="{{url('/')}}">
                                     <span class="list-text">Home</span>
                                 </a>
                             </li>
                             <li class="mega-menu">
-                                <a href="{{url('public/frontend/product-sidebar.html')}}">
+                                <a href="{{url('frontend/product-sidebar')}}">
                                     <span class="list-text">Shop</span>
                                     <span>
                                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
@@ -1021,30 +1021,30 @@
                                         <div class="menu-list">
                                             <h5 class="menu-title">Dresses</h5>
                                             <ul>
-                                                <li><a href="{{url('public/frontend/product-sidebar.html')}}">Shirt</a></li>
-                                                <li><a href="{{url('public/frontend/product-sidebar.html')}}">Skart</a></li>
-                                                <li><a href="{{url('public/frontend/product-sidebar.html')}}"> T-Shirt</a></li>
+                                                <li><a href="{{url('frontend/product-sidebar')}}">Shirt</a></li>
+                                                <li><a href="{{url('frontend/product-sidebar')}}">Skart</a></li>
+                                                <li><a href="{{url('frontend/product-sidebar')}}"> T-Shirt</a></li>
                                             </ul>
                                         </div>
                                         <div class="menu-list">
                                             <h5 class="menu-title">Bags</h5>
                                             <ul>
-                                                <li><a href="{{url('public/frontend/product-sidebar.html')}}">HandBags</a></li>
-                                                <li><a href="{{url('public/frontend/product-sidebar.html')}}">Mobile Bags</a></li>
-                                                <li><a href="{{url('public/frontend/product-sidebar.html')}}">School Bags</a></li>
+                                                <li><a href="{{url('frontend/product-sidebar')}}">HandBags</a></li>
+                                                <li><a href="{{url('frontend/product-sidebar')}}">Mobile Bags</a></li>
+                                                <li><a href="{{url('frontend/product-sidebar')}}">School Bags</a></li>
                                             </ul>
                                         </div>
                                         <div class="menu-list">
                                             <h5 class="menu-title">Cosmetics</h5>
                                             <ul>
-                                                <li><a href="{{url('public/frontend/product-sidebar.html')}}">Liptics</a></li>
-                                                <li><a href="{{url('public/frontend/product-sidebar.html')}}">Foundation</a></li>
-                                                <li><a href="{{url('public/frontend/product-sidebar.html')}}"> Eye Liner</a></li>
+                                                <li><a href="{{url('frontend/product-sidebar')}}">Liptics</a></li>
+                                                <li><a href="{{url('frontend/product-sidebar')}}">Foundation</a></li>
+                                                <li><a href="{{url('frontend/product-sidebar')}}"> Eye Liner</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="shop-menu-img">
-                                        <img src="./assets/images/homepage-one/empty-wishlist.webp" alt="img">
+                                        <img src="{{url('frontend/assets/images/homepage-one/empty-wishlist.webp')}}" alt="img">
                                     </div>
                                 </div>
                             </li>
@@ -1068,41 +1068,46 @@
                                     </span>
                                 </a>
                                 <ul class="header-sub-menu">
-                                    <li><a href="{{url('public/frontendproduct-info.html')}}">Product-details</a></li>
-                                    <li><a href="{{url('public/frontendprivacy.html')}}">Privacy Policy</a></li>
-                                    <li><a href="{{url('public/frontendterms.html')}}">Terms & Condition</a></li>
-                                    <li><a href="{{url('public/frontendfaq.html')}}">FAQ</a></li>
-                                    <li><a href="{{url('public/frontendproduct-sidebar.html')}}">Shop Category Icon</a></li>
-                                    <li><a href="{{url('public/frontendproduct-sidebar.html')}}">Shop List View</a></li>
+                                    <li><a href="{{url('frontend/product-info')}}">Product-details</a></li>
+                                    <li><a href="{{url('frontend/privacy')}}">Privacy Policy</a></li>
+                                    <li><a href="{{url('frontend/terms')}}">Terms & Condition</a></li>
+                                    <li><a href="{{url('frontend/faq')}}">FAQ</a></li>
+                                    <li><a href="{{url('frontend/product-sidebar')}}">Shop Category Icon</a></li>
+                                    <li><a href="{{url('frontend/product-sidebar')}}">Shop List View</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="{{url('public/frontendabout.html')}}">
+                                <a href="{{url('frontend/about')}}">
                                     <span class="list-text">About</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{url('public/frontendblogs.html')}}">
+                                <a href="{{url('frontend/blogs')}}">
                                     <span class="list-text">Blog</span>
                                 </a>
                                 <ul class="header-sub-menu">
-                                    <li><a href="{{url('public/frontendblogs-details.html')}}">Blog-details</a></li>
+                                    <li><a href="{{url('frontend/blogs-details')}}">Blog-details</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="{{url('public/frontenduser-profile.html')}}">
+                                <a href="{{url('frontend/user-profile')}}">
                                     <span class="list-text">User Dashboard</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{url('public/frontendcontact-us.html')}}">
+                                <a href="{{url('frontend/contact-us')}}">
                                     <span class="list-text">Contact</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{url('payment-form')}}">
+                                    <span class="list-text">payment</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="header-vendor-btn">
-                        <a href="{{url('public/frontendbecome-vendor.html')}}" class="shop-btn">
+                        <a href="{{url('frontend/become-vendor')}}" class="shop-btn">
                             <span class="list-text shop-text">Became Vendor</span>
                             <span class="icon">
                                 <svg width="24" height="16" viewBox="0 0 24 16" fill="none"

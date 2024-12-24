@@ -11,15 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
-            $table->id();
-            $table->decimal('total_amount', 10, 2);
-            $table->integer('total_quantity');
-            $table->decimal('service_charge', 10, 2)->default(0);
-            $table->decimal('delivery_charge', 10, 2)->default(0);
-            $table->decimal('grand_total', 10, 2);
-            $table->timestamps();
-        });
+        // Check if the table already exists before creating it
+        if (!Schema::hasTable('payments')) {
+            Schema::create('payments', function (Blueprint $table) {
+                $table->id();
+                $table->decimal('total_amount', 10, 2);
+                $table->integer('total_quantity');
+                $table->decimal('service_charge', 10, 2)->default(0);
+                $table->decimal('delivery_charge', 10, 2)->default(0);
+                $table->decimal('grand_total', 10, 2);
+                $table->timestamps();
+            });
+        }
     }
 
     /**

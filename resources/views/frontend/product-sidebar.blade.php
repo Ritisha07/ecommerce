@@ -8,26 +8,26 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="{{url('frontend/assets/images/homepage-one/icon.png')}}">
+    <link rel="icon" href="{{asset('frontend/assets/images/homepage-one/icon.png')}}">
 
     <!--title  -->
     <title>Shopus: Your One-Stop Destination for Fashion and Style</title>
 
 
     <!--------------- swiper-css ---------------->
-    <link rel="stylesheet" href="{{url('frontend/css/swiper10-bundle.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/swiper10-bundle.min.css')}}">
 
     <!--------------- bootstrap-css ---------------->
-    <link rel="stylesheet" href="{{'asset(frontend/css/bootstrap-5.3.2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/bootstrap-5.3.2.min.css')}}">
 
     <!---------------------- Range Slider ------------------->
-    <link rel="stylesheet" href="{{'asset(frontendss/nouislider.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontendss/nouislider.min.css')}}">
 
     <!---------------------- Scroll ------------------->
-    <link rel="stylesheet" href="{{'asset(frontendss/aos-3.0.0.css')}}">
+    <link rel="stylesheet" href="{{asset('frontendss/aos-3.0.0.css')}}">
 
     <!--------------- additional-css ---------------->
-    <link rel="stylesheet" href="{{'asset(frontend/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 
 
 
@@ -221,7 +221,9 @@
                         <div class="sidebar-shop-section">
                             <span class="wrapper-subtitle">TRENDY</span>
                             <h5 class="wrapper-heading">Best wireless Shoes</h5>
-                            <a href="seller-sidebar.html" class="shop-btn deal-btn">Shop Now </a>
+                            //can use route also instead of url
+                            <a href="{{ url('seller-sidebar') }}" class="shop-btn deal-btn">Shop Now</a>
+
                         </div>
                     </div>
                 </div>
@@ -250,8 +252,9 @@
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-wrapper" data-aos="fade-up">
                                     <div class="product-img">
-                                        <img src="./assets/images/homepage-one/product-img/product-img-1.webp"
+                                        <img src="url{'./assets/images/homepage-one/imggOne.jpg'}"
                                             alt="product-img">
+                                            
                                         <div class="product-cart-items">
                                     <a href="#" class="cart cart-item">
                                         <span>
@@ -285,7 +288,7 @@
                                             </svg>
                                         </span>
                                     </a>
-                                    <a href="wishlist.html" class="favourite cart-item">
+                                    <a href="{{route('wishlist')}}" class="favourite cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -297,7 +300,7 @@
 
                                         </span>
                                     </a>
-                                    <a href="compaire.html" class="compaire cart-item">
+                                    <a href="{{route('compaire')}}" class="compaire cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -343,7 +346,7 @@
                                             </span>
                                         </div>
                                         <div class="product-description">
-                                            <a href="product-info.html" class="product-details">Flower Design Skart
+                                            <a href="{{route('product-info')}}-info" class="product-details">Flower Design Skart
                                             </a>
                                             <div class="price">
                                                 <span class="price-cut">$31.99</span>
@@ -352,17 +355,17 @@
                                         </div>
                                     </div>
                                     <div class="product-cart-btn">
-                                        <a href="cart.html" class="product-btn">Add To Cart</a>
+                                        <a href="{{route('cart')}}" class="product-btn">Add To Cart</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-wrapper" data-aos="fade-up">
                                     <div class="product-img">
-                                        <img src="./assets/images/homepage-one/product-img/product-img-2.webp"
+                                        <img src="./assets/images/homepage-one/imggOne.jpg"
                                             alt="product-img">
                                         <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -394,7 +397,7 @@
                                             </svg>
                                         </span>
                                     </a>
-                                    <a href="wishlist.html" class="favourite cart-item">
+                                    <a href="{{route('wishlist')}}" class="favourite cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -406,7 +409,7 @@
 
                                         </span>
                                     </a>
-                                    <a href="compaire.html" class="compaire cart-item">
+                                    <a href="{{route('compaire')}}" class="compaire cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -452,7 +455,7 @@
                                             </span>
                                         </div>
                                         <div class="product-description">
-                                            <a href="product-info.html" class="product-details">Black Suit
+                                            <a href="{{route('product-info')}}-info" class="product-details">Black Suit
                                             </a>
                                             <div class="price">
                                                 <span class="price-cut">$50.99</span>
@@ -461,17 +464,17 @@
                                         </div>
                                     </div>
                                     <div class="product-cart-btn">
-                                        <a href="cart.html" class="product-btn">Add To Cart</a>
+                                        <a href="{{route('cart')}}" class="product-btn">Add To Cart</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-wrapper" data-aos="fade-up">
                                     <div class="product-img">
-                                        <img src="./assets/images/homepage-one/product-img/product-img-3.webp"
+                                        <img src="./assets/images/homepage-one/imggOne.jpg"
                                             alt="product-img">
                                         <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -503,7 +506,7 @@
                                             </svg>
                                         </span>
                                     </a>
-                                    <a href="wishlist.html" class="favourite cart-item">
+                                    <a href="{{route('wishlist')}}" class="favourite cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -515,7 +518,7 @@
 
                                         </span>
                                     </a>
-                                    <a href="compaire.html" class="compaire cart-item">
+                                    <a href="{{route('compaire')}}" class="compaire cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -561,7 +564,7 @@
                                             </span>
                                         </div>
                                         <div class="product-description">
-                                            <a href="product-info.html" class="product-details">Blue Party Dress
+                                            <a href="{{route('product-info')}}-info" class="product-details">Blue Party Dress
                                             </a>
                                             <div class="price">
                                                 <span class="price-cut">$25.99</span>
@@ -570,17 +573,17 @@
                                         </div>
                                     </div>
                                     <div class="product-cart-btn">
-                                        <a href="cart.html" class="product-btn">Add To Cart</a>
+                                        <a href="{{route('cart')}}" class="product-btn">Add To Cart</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-wrapper" data-aos="fade-up">
                                     <div class="product-img">
-                                        <img src="./assets/images/homepage-one/product-img/product-img-4.webp"
+                                        <img src="./assets/images/homepage-one/imggOne.jpg"
                                             alt="product-img">
                                         <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -612,7 +615,7 @@
                                             </svg>
                                         </span>
                                     </a>
-                                    <a href="wishlist.html" class="favourite cart-item">
+                                    <a href="{{route('wishlist')}}" class="favourite cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -624,7 +627,7 @@
 
                                         </span>
                                     </a>
-                                    <a href="compaire.html" class="compaire cart-item">
+                                    <a href="{{route('compaire')}}" class="compaire cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -670,7 +673,7 @@
                                             </span>
                                         </div>
                                         <div class="product-description">
-                                            <a href="product-info.html" class="product-details">Red Party Dress
+                                            <a href="{{route('product-info')}}-info" class="product-details">Red Party Dress
                                             </a>
                                             <div class="price">
                                                 <span class="price-cut">$22.99</span>
@@ -679,17 +682,17 @@
                                         </div>
                                     </div>
                                     <div class="product-cart-btn">
-                                        <a href="cart.html" class="product-btn">Add To Cart</a>
+                                        <a href="{{route('cart')}}" class="product-btn">Add To Cart</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-wrapper" data-aos="fade-up">
                                     <div class="product-img">
-                                        <img src="./assets/images/homepage-one/product-img/product-img-5.webp"
+                                        <img src="./assets/images/homepage-one/imggOne.jpg"
                                             alt="product-img">
                                         <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -721,7 +724,7 @@
                                             </svg>
                                         </span>
                                     </a>
-                                    <a href="wishlist.html" class="favourite cart-item">
+                                    <a href="{{route('cart')}}" class="favourite cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -733,7 +736,7 @@
 
                                         </span>
                                     </a>
-                                    <a href="compaire.html" class="compaire cart-item">
+                                    <a href="{{route('compaire')}}" class="compaire cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -779,7 +782,7 @@
                                             </span>
                                         </div>
                                         <div class="product-description">
-                                            <a href="product-info.html" class="product-details">White Checked Shirt
+                                            <a href="{{route('product-info')}}-info" class="product-details">White Checked Shirt
                                             </a>
                                             <div class="price">
                                                 <span class="price-cut">$18.99</span>
@@ -788,17 +791,17 @@
                                         </div>
                                     </div>
                                     <div class="product-cart-btn">
-                                        <a href="cart.html" class="product-btn">Add To Cart</a>
+                                        <a href="{{route('cart')}}" class="product-btn">Add To Cart</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-wrapper" data-aos="fade-up">
                                     <div class="product-img">
-                                        <img src="./assets/images/homepage-one/product-img/product-img-6.webp"
+                                        <img src="./assets/images/homepage-one/imggOne.jpg"
                                             alt="product-img">
                                         <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -830,7 +833,7 @@
                                             </svg>
                                         </span>
                                     </a>
-                                    <a href="wishlist.html" class="favourite cart-item">
+                                    <a href="{{route('wishlist')}}" class="favourite cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -842,7 +845,7 @@
 
                                         </span>
                                     </a>
-                                    <a href="compaire.html" class="compaire cart-item">
+                                    <a href="{{route('compaire')}}" class="compaire cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -888,7 +891,7 @@
                                             </span>
                                         </div>
                                         <div class="product-description">
-                                            <a href="product-info.html" class="product-details">White Hat
+                                            <a href="{{route('product-info')}}-info" class="product-details">White Hat
                                             </a>
                                             <div class="price">
                                                 <span class="price-cut">$33.99</span>
@@ -897,23 +900,23 @@
                                         </div>
                                     </div>
                                     <div class="product-cart-btn">
-                                        <a href="cart.html" class="product-btn">Add To Cart</a>
+                                        <a href="{{route('cart')}}" class="product-btn">Add To Cart</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="product-deal-section" data-aos="fade-up">
                                     <h5 class="wrapper-heading">Get the best deal for Headphones</h5>
-                                    <a href="seller-sidebar.html" class="shop-btn">Shop Now</a>
+                                    <a href="{{route('product-sidebar')}}" class="shop-btn">Shop Now</a>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-wrapper" data-aos="fade-up">
                                     <div class="product-img">
-                                        <img src="./assets/images/homepage-one/product-img/product-img-1.webp"
+                                        <img src="./assets/images/homepage-one/imggOne.jpg"
                                             alt="product-img">
                                         <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -945,7 +948,7 @@
                                             </svg>
                                         </span>
                                     </a>
-                                    <a href="wishlist.html" class="favourite cart-item">
+                                    <a href="{{route('wishlist')}}" class="favourite cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -957,7 +960,7 @@
 
                                         </span>
                                     </a>
-                                    <a href="compaire.html" class="compaire cart-item">
+                                    <a href="{{route('compaire')}}" class="compaire cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1003,7 +1006,7 @@
                                             </span>
                                         </div>
                                         <div class="product-description">
-                                            <a href="product-info.html" class="product-details">Rainbow Sequin Skart
+                                            <a href="{{route('product-info')}}-info" class="product-details">Rainbow Sequin Skart
                                             </a>
                                             <div class="price">
                                                 <span class="price-cut">$36.99</span>
@@ -1012,17 +1015,17 @@
                                         </div>
                                     </div>
                                     <div class="product-cart-btn">
-                                        <a href="cart.html" class="product-btn">Add To Cart</a>
+                                        <a href="{{route('cart')}}" class="product-btn">Add To Cart</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-wrapper" data-aos="fade-up">
                                     <div class="product-img">
-                                        <img src="./assets/images/homepage-one/product-img/product-img-2.webp"
+                                        <img src="./assets/images/homepage-one/imggOne.jpg"
                                             alt="product-img">
                                         <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}} class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1054,7 +1057,7 @@
                                             </svg>
                                         </span>
                                     </a>
-                                    <a href="wishlist.html" class="favourite cart-item">
+                                    <a href="{{route('wishlist')}}" class="favourite cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1066,7 +1069,7 @@
 
                                         </span>
                                     </a>
-                                    <a href="compaire.html" class="compaire cart-item">
+                                    <a href="{{route('compaire')}}" class="compaire cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1112,7 +1115,7 @@
                                             </span>
                                         </div>
                                         <div class="product-description">
-                                            <a href="product-info.html" class="product-details">White T-Shirt
+                                            <a href="{{route('product-info')}}-info" class="product-details">White T-Shirt
                                             </a>
                                             <div class="price">
                                                 <span class="price-cut">$39.99</span>
@@ -1121,17 +1124,17 @@
                                         </div>
                                     </div>
                                     <div class="product-cart-btn">
-                                        <a href="cart.html" class="product-btn">Add To Cart</a>
+                                        <a href="{{route('cart')}}" class="product-btn">Add To Cart</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-wrapper" data-aos="fade-up">
                                     <div class="product-img">
-                                        <img src="./assets/images/homepage-one/product-img/product-img-3.webp"
+                                        <img src="./assets/images/homepage-one/imggOne.jpg"
                                             alt="product-img">
                                         <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}} class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1163,7 +1166,7 @@
                                             </svg>
                                         </span>
                                     </a>
-                                    <a href="wishlist.html" class="favourite cart-item">
+                                    <a href="{{route('wishlist')}}" class="favourite cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1175,7 +1178,7 @@
 
                                         </span>
                                     </a>
-                                    <a href="compaire.html" class="compaire cart-item">
+                                    <a href="{{route('compaire')}}" class="compaire cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1221,7 +1224,7 @@
                                             </span>
                                         </div>
                                         <div class="product-description">
-                                            <a href="product-info.html" class="product-details">Sleeveless Dress
+                                            <a href="{{route('product-info')}}-info" class="product-details">Sleeveless Dress
                                             </a>
                                             <div class="price">
                                                 <span class="price-cut">$29.99</span>
@@ -1230,17 +1233,17 @@
                                         </div>
                                     </div>
                                     <div class="product-cart-btn">
-                                        <a href="cart.html" class="product-btn">Add To Cart</a>
+                                        <a href="{{route('cart')}}" class="product-btn">Add To Cart</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-wrapper" data-aos="fade-up">
                                     <div class="product-img">
-                                        <img src="./assets/images/homepage-one/product-img/product-img-4.webp"
+                                        <img src="./assets/images/homepage-one/imggOne.jpg"
                                             alt="product-img">
                                         <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}} class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1272,7 +1275,7 @@
                                             </svg>
                                         </span>
                                     </a>
-                                    <a href="wishlist.html" class="favourite cart-item">
+                                    <a href="{{route('wishlist')}}" class="favourite cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1284,7 +1287,7 @@
 
                                         </span>
                                     </a>
-                                    <a href="compaire.html" class="compaire cart-item">
+                                    <a href="{{route('compaire')}}" class="compaire cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1330,7 +1333,7 @@
                                             </span>
                                         </div>
                                         <div class="product-description">
-                                            <a href="product-info.html" class="product-details">Rainbow Sequin Shirt
+                                            <a href="{{route('product-info')}}-info" class="product-details">Rainbow Sequin Shirt
                                             </a>
                                             <div class="price">
                                                 <span class="price-cut">$9.99</span>
@@ -1339,17 +1342,17 @@
                                         </div>
                                     </div>
                                     <div class="product-cart-btn">
-                                        <a href="cart.html" class="product-btn">Add To Cart</a>
+                                        <a href="{{route('cart')}}" class="product-btn">Add To Cart</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-wrapper" data-aos="fade-up">
                                     <div class="product-img">
-                                        <img src="./assets/images/homepage-one/product-img/product-img-5.webp"
+                                        <img src="./assets/images/homepage-one/imggOne.jpg"
                                             alt="product-img">
                                         <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}} class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1381,7 +1384,7 @@
                                             </svg>
                                         </span>
                                     </a>
-                                    <a href="wishlist.html" class="favourite cart-item">
+                                    <a href="{{route('wishlist')}}" class="favourite cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1393,7 +1396,7 @@
 
                                         </span>
                                     </a>
-                                    <a href="compaire.html" class="compaire cart-item">
+                                    <a href="{{route('compaire')}}" class="compaire cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1439,7 +1442,7 @@
                                             </span>
                                         </div>
                                         <div class="product-description">
-                                            <a href="product-info.html" class="product-details">Tom Checked shirt
+                                            <a href="{{route('product-info')}}-info" class="product-details">Tom Checked shirt
                                             </a>
                                             <div class="price">
                                                 <span class="price-cut">$46.99</span>
@@ -1448,17 +1451,17 @@
                                         </div>
                                     </div>
                                     <div class="product-cart-btn">
-                                        <a href="cart.html" class="product-btn">Add To Cart</a>
+                                        <a href="{{route('cart')}}" class="product-btn">Add To Cart</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-wrapper" data-aos="fade-up">
                                     <div class="product-img">
-                                        <img src="./assets/images/homepage-one/product-img/product-img-6.webp"
+                                        <img src="./assets/images/homepage-one/imggOne.jpg"
                                             alt="product-img">
                                         <div class="product-cart-items">
-                                    <a href="#" class="cart cart-item">
+                                    <a href="{{route('cart')}} class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1490,7 +1493,7 @@
                                             </svg>
                                         </span>
                                     </a>
-                                    <a href="wishlist.html" class="favourite cart-item">
+                                    <a href="{{route('wishlist')}}" class="favourite cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1502,7 +1505,7 @@
 
                                         </span>
                                     </a>
-                                    <a href="compaire.html" class="compaire cart-item">
+                                    <a href="{{route('compaire')}}" class="compaire cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1548,7 +1551,7 @@
                                             </span>
                                         </div>
                                         <div class="product-description">
-                                            <a href="product-info.html" class="product-details">Rainbow Baby Dress
+                                            <a href="{{route('product-info')}}-info" class="product-details">Rainbow Baby Dress
                                             </a>
                                             <div class="price">
                                                 <span class="price-cut">$29.99</span>
@@ -1557,7 +1560,7 @@
                                         </div>
                                     </div>
                                     <div class="product-cart-btn">
-                                        <a href="cart.html" class="product-btn">Add To Cart</a>
+                                        <a href="{{route('cart')}}" class="product-btn">Add To Cart</a>
                                     </div>
                                 </div>
                             </div>
@@ -1576,22 +1579,22 @@
 
 @endsection
     <!--------------- jQuery ---------------->
-    <script src="assets/js/jquery_3.7.1.min.js"></script>
+    <script src="{{asset('frontend/assets/js/jquery_3.7.1.min.js')}}"></script>
 
     <!--------------- bootstrap-js ---------------->
-    <script src="assets/js/bootstrap_5.3.2.bundle.min.js"></script>
+    <script src="{{asset('frontend/assets/js/bootstrap_5.3.2.bundle.min.js')}}"></script>
 
     <!--------------- Range-Slider-js ---------------->
-    <script src="assets/js/nouislider.min.js"></script>
+    <script src="{{asset('frontend/assets/js/nouislider.min.js')}}"></script>
 
     <!--------------- scroll-Animation-js ---------------->
-    <script src="assets/js/aos-3.0.0.js"></script>
+    <script src="{{asset('frontend/assets/js/aos-3.0.0.js')}}"></script>
 
     <!--------------- swiper-js ---------------->
-    <script src="assets/js/swiper10-bundle.min.js"></script>
+    <script src="{{asset('frontend/assets/js/swiper10-bundle.min.js')}}"></script>
 
     <!--------------- additional-js ---------------->
-    <script src="assets/js/shopus.js"></script>
+    <script src="{{asset('frontend/assets/js/shopus.js')}}"></script>
 
 
 </body>

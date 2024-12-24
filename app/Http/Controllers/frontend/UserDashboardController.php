@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 class UserDashboardController extends Controller
 {
     //
-    public function index()
+    public function userProfile()
     {
+        return view('frontend.user-profile');
 
     }
 }

@@ -1105,7 +1105,7 @@ button {
 }
 
 .hero-slider-one {
-  background: url("../assets/images/homepage-one/hero-slider-one.webp") no-repeat center/cover;
+  background: url("../assets/images/homepage-one/imageOne.avif") no-repeat center/cover;
 }
 
 .hero-slider-two {
@@ -1116,12 +1116,24 @@ button {
   background: url("../assets/images/homepage-one/hero-slider-three.webp") no-repeat center/cover;
 }
 
-@media (max-width:767px) {
+/* @media (max-width:767px) {
   .hero-slider-one,
   .hero-slider-two,
   .hero-slider-three {
     background-position: left;
+    
   }
+} */
+@media (min-width: 1024px) {
+  .hero-slider-one,
+  .hero-slider-two,
+  .hero-slider-three {
+        background-size: cover;  /* Ensures the image covers the area without distortion */
+      background-position: center; /* Centers the image */
+      height: 40vh; /* Adjust to your preferred height */
+      width: 100%;
+  }
+  
 }
 
 .swiper-pagination-bullet {
