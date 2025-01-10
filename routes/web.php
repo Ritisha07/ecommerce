@@ -4,13 +4,20 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\frontend\HomeController; 
 use App\Http\Controllers\frontend\AboutController; 
-use App\Http\Controllers\frontend\BlogController; 
-use App\Http\Controllers\frontend\PagesController; 
+use App\Http\Controllers\frontend\BlogController;  
 use App\Http\Controllers\frontend\ShopController; 
 use App\Http\Controllers\frontend\UserDashboardController; 
 use App\Http\Controllers\frontend\ContactController; 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ProductController;
 Route::get('/', [HomeController::class, 'index'])->name('index'); // Home route
+Route::get('/brands', [BrandController::class, 'showAll'])->name('frontend.brands');
+// Route::get('/products', [ProductController::class, 'index'])->name('frontend.products');
+// Route::get('/product/{id}', [ProductController::class, 'show'])->name('product-info');
+Route::get('/products', [ProductController::class, 'index'])->name('product.index');
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+
 Route::get('/category', [CategoryController::class, 'category'])->name('category');
 Route::get('/frontend/blogs', [BlogController::class, 'blogs'])->name('blogs');
 Route::get('/frontend/blogs-details', [BlogController::class, 'blogsDetail'])->name('blogs-details');

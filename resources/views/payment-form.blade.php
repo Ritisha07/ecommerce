@@ -12,7 +12,7 @@
 @section('main-container')
 <body class="font-sans antialiased bg-gradient-to-r">
     <div class="max-w-4xl mx-auto p-8">
-        <h1 class="text-4xl font-bold mb-8 text-center text-black">Welcome to our E-commerce Website</h1>
+        <!-- <h1 class="text-4xl font-bold mb-8 text-center text-blac">Welcome to our E-commerce Website</h1> -->
 
         <form action="{{ route('payment.proceed') }}" method="POST" class="space-y-6">
             @csrf

@@ -46,9 +46,9 @@
     <section class="blog about-blog">
         <div class="container">
             <div class="blog-bradcrum">
-                <span><a href="index.html">Home</a></span>
+                <span><a href="{{route('index')}}">Home</a></span>
                 <span class="devider">/</span>
-                <span><a href="#">Sellers</a></span>
+                <span><a href="{{route('index')}}">Sellers</a></span>
             </div>
             <div class="blog-heading about-heading">
                 <h1 class="heading">All Seller</h1>
@@ -133,7 +133,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <a href="seller-sidebar.html" class="shop-btn">Shop Now</a>
+                                <a href="{{route('seller-sidebar')}}" class="shop-btn">Shop Now</a>
                             </div>
                             <div class="seller-details">
                                 <div class="seller-img">
@@ -216,7 +216,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <a href="seller-sidebar.html" class="shop-btn">Shop Now</a>
+                                <a href="{{route('seller-sidebar')}}" class="shop-btn">Shop Now</a>
                             </div>
                             <div class="seller-details">
                                 <div class="seller-img">
@@ -299,7 +299,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <a href="seller-sidebar.html" class="shop-btn">Shop Now</a>
+                                <a href="{{route('seller-sidebar')}}" class="shop-btn">Shop Now</a>
                             </div>
                             <div class="seller-details">
                                 <div class="seller-img">
@@ -382,7 +382,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <a href="seller-sidebar.html" class="shop-btn">Shop Now</a>
+                                <a href="{{route('seller-sidebar')}}" class="shop-btn">Shop Now</a>
                             </div>
                             <div class="seller-details">
                                 <div class="seller-img">
@@ -465,7 +465,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <a href="seller-sidebar.html" class="shop-btn">Shop Now</a>
+                                <a href="{{route('seller-sidebar')}}" class="shop-btn">Shop Now</a>
                             </div>
                             <div class="seller-details">
                                 <div class="seller-img">
@@ -548,7 +548,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <a href="seller-sidebar.html" class="shop-btn">Shop Now</a>
+                                <a href="{{route('seller-sidebar')}}" class="shop-btn">Shop Now</a>
                             </div>
                             <div class="seller-details">
                                 <div class="seller-img">
