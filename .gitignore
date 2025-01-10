@@ -1,7 +1,7 @@
 # Laravel specific
 /vendor
 /node_modules
-/public/storage
+# /public/storage
 /public/hot
 /public/uploads
 /storage/*.key
@@ -11,7 +11,7 @@
 /storage/logs
 .env
 .env.*
-
+# 
 # Laravel IDE helper files
 .phpstorm.meta.php
 _ide_helper.php
