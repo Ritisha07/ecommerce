@@ -1666,7 +1666,7 @@ button {
   padding-top: 6rem;
 }
 .weekly-sale .style-section .wrapper-one {
-  background: url("../assets/images/homepage-one/style-bg-three.webp") no-repeat center/cover;
+  background: url("../assets/images/homepage-one/one_image.jpg") no-repeat center/cover;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -1674,7 +1674,7 @@ button {
   gap: 0px;
 }
 .weekly-sale .style-section .wrapper-two {
-  background: url("../assets/images/homepage-one/style-bg-four.webp") no-repeat center/cover;
+  background: url("../assets/images/homepage-one/two_image.jpg") no-repeat center/cover;
 }
 @media (max-width:767px) {
   .weekly-sale h5 {

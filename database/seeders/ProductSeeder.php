@@ -40,6 +40,11 @@ class ProductSeeder extends Seeder
                 'discount_type' => 'percentage',
                 'discount_value' => 10,
                 'rating' => 4.5,
+                'top_selling' => true,  // Add top selling flag
+                'seller_of_the_week' => true, // Add seller of the week flag
+                'flash_sale' => true, // Add flash sale flag
+                'sale_start_time' => '2025-01-10 00:00:00',
+                'sale_end_time' => '2025-01-15 23:59:59',
             ],
             [
                 'name' => 'Shoes',
@@ -62,13 +67,135 @@ class ProductSeeder extends Seeder
                 'featured_product' => false,
                 'discount_type' => 'fixed',
                 'discount_value' => 20,
-                'rating' => 3.5
+                'rating' => 3.5,
+                // 'new_arrival'=>true,
+                'top_selling' => true,  // Add top selling flag
+                'seller_of_the_week' => true, // Add seller of the week flag
+                'flash_sale' => true, // Add flash sale flag
+                'sale_start_time' => '2025-01-10 00:00:00',
+                'sale_end_time' => '2025-01-15 23:59:59',
             ],
-            // Add more products here
+            [
+                'name' => 'Dress',
+                'sku' => 'PROD3',
+                'slug' => 'product-3',
+                'regular_price' => 1900.00,
+                'sale_price' => 1800.00,
+                'mrp' => 1850.00,
+                'description' => 'This is a beaytiful red dress',
+                'category_id' => Category::skip(1)->first()->id, // Using second category as an example
+                'brand_id' => Brand::skip(1)->first()->id, // Using second brand as an example
+                'seller_name' => 'Seller 3',
+                'status' => 'inactive',
+                'image' => 'product/dress.jpg',
+                'model_no' => 'MODEL002',
+                'manufacture' => '2025-08-09',
+                'expiry_date' => '2026-06-01',
+                'modify_date' => '2025-02-01',
+                'tax_type' => 'taxable',
+                'featured_product' => false,
+                'discount_type' => 'fixed',
+                'discount_value' => 20,
+                'rating' => 4.5,
+                // 'new_arrival'=>true,
+                'top_selling' => true,  // Add top selling flag
+                'seller_of_the_week' => true, // Add seller of the week flag
+                'flash_sale' => false, // Add flash sale flag
+                'sale_start_time' => '2025-01-10 00:00:00',
+                'sale_end_time' => '2025-01-15 23:59:59',
+            ],[
+                'name' => 'Watch',
+                'sku' => 'PROD4',
+                'slug' => 'product-4',
+                'regular_price' => 2000.00,
+                'sale_price' => 1800.00,
+                'mrp' => 2200.00,
+                'description' => 'This is stylist black watch for men',
+                'category_id' => Category::skip(1)->first()->id, // Using second category as an example
+                'brand_id' => Brand::skip(1)->first()->id, // Using second brand as an example
+                'seller_name' => 'Seller 4',
+                'status' => 'inactive',
+                'image' => 'product/watch.jpg',
+                'model_no' => 'MODEL004',
+                'manufacture' => '2025-12-11',
+                'expiry_date' => '2026-02-26',
+                'modify_date' => '2025-9-01',
+                'tax_type' => 'taxable',
+                'featured_product' => true,
+                'discount_type' => 'fixed',
+                'discount_value' => 20,
+                'rating' => 2.5,
+                // 'new_arrival'=>true,
+                'top_selling' => false,  // Add top selling flag
+                'seller_of_the_week' => true, // Add seller of the week flag
+                'flash_sale' => true, // Add flash sale flag
+                'sale_start_time' => '2025-01-10 00:00:00',
+                'sale_end_time' => '2025-01-15 23:59:59',
+            ],
+            [
+                'name' => 'glasses',
+                'sku' => 'PROD5',
+                'slug' => 'product-5',
+                'regular_price' => 1500.00,
+                'sale_price' => 1400.00,
+                'mrp' => 1550.00,
+                'description' => 'This is stylist glasses',
+                'category_id' => Category::skip(1)->first()->id, // Using second category as an example
+                'brand_id' => Brand::skip(1)->first()->id, // Using second brand as an example
+                'seller_name' => 'Seller 2',
+                'status' => 'inactive',
+                'image' => 'product/glasses.jpg',
+                'model_no' => 'MODEL005',
+                'manufacture' => '2025-02-01',
+                'expiry_date' => '2026-02-01',
+                'modify_date' => '2025-02-01',
+                'tax_type' => 'taxable',
+                'featured_product' => true,
+                'discount_type' => 'fixed',
+                'discount_value' => 20,
+                'rating' => 2.5,
+                // 'new_arrival'=>true,
+                'top_selling' => false,  // Add top selling flag
+                'seller_of_the_week' => false, // Add seller of the week flag
+                'flash_sale' => false,// Add flash sale flag
+                'sale_start_time' => '2025-01-10 00:00:00',
+                'sale_end_time' => '2025-01-15 23:59:59',
+            ],
+            [
+                'name' => 'sweater',
+                'sku' => 'PROD6',
+                'slug' => 'product-6',
+                'regular_price' => 1200.00,
+                'sale_price' => 100.00,
+                'mrp' => 1250.00,
+                'description' => 'This is stylist sweater',
+                'category_id' => Category::skip(1)->first()->id, 
+                'brand_id' => Brand::skip(1)->first()->id,
+                'seller_name' => 'Seller 6',
+                'status' => 'active',
+                'image' => 'product/sweater.jpg',
+                'model_no' => 'MODEL005',
+                'manufacture' => '2025-02-01',
+                'expiry_date' => '2026-02-01',
+                'modify_date' => '2025-02-01',
+                'tax_type' => 'taxable',
+                'featured_product' => false,
+                'discount_type' => 'fixed',
+                'discount_value' => 20,
+                'rating' => 5.5,
+                // 'new_arrival'=>true,
+                'top_selling' => true,  // Add top selling flag
+                'seller_of_the_week' => false, // Add seller of the week flag
+                'flash_sale' => true,// Add flash sale flag
+                'sale_start_time' => '2025-01-10 00:00:00',
+                'sale_end_time' => '2025-01-15 23:59:59',
+            ],
+            
         ];
 
         // Insert products into the database
         foreach ($products as $product) {
+            
             Product::create($product);
         }
     }

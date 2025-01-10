@@ -13,7 +13,8 @@ class Product extends Model
         'name', 'sku', 'slug', 'regular_price', 'sale_price', 'mrp', 'description', 
         'category_id', 'brand_id', 'seller_name', 'status', 'image', 'model_no', 
         'manufacture', 'expiry_date', 'modify_date', 'tax_type', 'featured_product', 
-        'discount_type', 'discount_value','rating'
+        'discount_type', 'discount_value','rating','new_arrival','top_selling', 
+        'seller_of_the_week','flash_sale', 'sale_start_time', 'sale_end_time',
     ];
 
     public function brand()
