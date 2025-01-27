@@ -72,6 +72,7 @@
         <div class="section-title">
             <h5>Brand of Products</h5>
             <a href="{{ route('index') }}" class="view">View All</a>
+            
         </div>
         <div class="brand-section">
             @foreach ($brands as $brand)
@@ -90,10 +91,6 @@
         </div>
     </div>
 </section>
-
-
-
-
     <!--------------- brand-section-end--------------->
 
     <!--------------- arrival-section--------------->
@@ -171,7 +168,7 @@
                                 @endfor
                             </div>
                             <div class="product-description">
-                                <a href="{{ route('product-info', ['id' => $product->id]) }}" class="product-details">{{ $product->name }}</a>
+                                <a href="{{ route('product.show', ['id' => $product->id]) }}" class="product-details">{{ $product->name }}</a>
                                 <div class="price">
                                     <!-- <span class="price-cut">$100{{ $product->price }}</span>
                                     <span class="new-price">$90{{ $product->discounted_price }}</span> -->
@@ -181,7 +178,10 @@
                             </div>
                         </div>
                         <div class="product-cart-btn">
-                            <a href="{{ route('cart') }}" class="product-btn">Add To Cart</a>
+                            <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="product-btn">Add to Cart</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -299,7 +299,7 @@
                                 @endfor
                             </div>
                             <div class="product-description">
-                                <a href="{{ route('product-info', ['id' => $product->id]) }}" class="product-details">{{ $product->name }}</a>
+                                <a href="{{ route('product.show', ['id' => $product->id]) }}" class="product-details">{{ $product->name }}</a>
                                 <div class="price">
                                     <span class="price-cut">${{ number_format($product->regular_price, 2) }}</span>
                                     <span class="new-price">${{ number_format($product->sale_price, 2) }}</span>
@@ -307,7 +307,10 @@
                             </div>
                         </div>
                         <div class="product-cart-btn">
-                            <a href="{{ route('cart') }}" class="product-btn">Add To Cart</a>
+                            <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="product-btn">Add to Cart</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -411,7 +414,7 @@
                                     @endfor
                                 </div>
                                 <div class="product-description">
-                                    <a href="{{ route('product-info', ['id' => $product->id]) }}" class="product-details">{{ $product->name }}</a>
+                                    <a href="{{ route('product.show', ['id' => $product->id]) }}" class="product-details">{{ $product->name }}</a>
                                     <div class="price">
                                         <span class="price-cut">${{ number_format($product->regular_price, 2) }}</span>
                                         <span class="new-price">${{ number_format($product->sale_price, 2) }}</span>
@@ -419,8 +422,11 @@
                                 </div>
                             </div>
                             <div class="product-cart-btn">
-                                <a href="{{route('cart')}}" class="product-btn">Add To Cart</a>
-                            </div>
+                            <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="product-btn">Add to Cart</button>
+                            </form>
+                        </div>
                             
                         </div>
                     </div>
@@ -643,7 +649,7 @@
                                 @endfor
                             </div>
                             <div class="product-description">
-                                <a href="{{ route('product-info', ['id' => $product->id]) }}" class="product-details">{{ $product->name }}</a>
+                                <a href="{{ route('product.show', ['id' => $product->id]) }}" class="product-details">{{ $product->name }}</a>
                                 <div class="price">
                                     <span class="price-cut">${{ number_format($product->regular_price, 2) }}</span>
                                     <span class="new-price">${{ number_format($product->sale_price, 2) }}</span>
@@ -651,8 +657,11 @@
                             </div>
                             </div>
                             <div class="product-cart-btn">
-                                <a href="{{route('cart')}}" class="product-btn">Add To Cart</a>
-                            </div>
+                            <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="product-btn">Add to Cart</button>
+                            </form>
+                        </div>
                         </div>
                     </div>
                     @endforeach  
@@ -736,7 +745,7 @@
                                 @endfor
                             </div>
                             <div class="product-description">
-                                <a href="{{ route('product-info', ['id' => $product->id]) }}" class="product-details">{{ $product->name }}</a>
+                                <a href="{{ route('product.show', ['id' => $product->id]) }}" class="product-details">{{ $product->name }}</a>
                                 <div class="price">
                                     <span class="price-cut">${{ number_format($product->regular_price, 2) }}</span>
                                     <span class="new-price">${{ number_format($product->sale_price, 2) }}</span>

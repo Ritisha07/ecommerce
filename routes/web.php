@@ -11,13 +11,26 @@ use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
+
+Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart.show');
+Route::patch('/cart/update/{id}', [CartController::class, 'updateCart'])->name('cart.update');
+Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::get('/frontend/empty-cart', function () {return view('frontend.empty-cart');
+})->name('empty-cart');
+Route::get('/frontend/checkout', function () {return view('frontend.checkout');
+})->name('checkout');
+
+
+
+
 Route::get('/', [HomeController::class, 'index'])->name('index'); // Home route
 Route::get('/brands', [BrandController::class, 'showAll'])->name('frontend.brands');
-// Route::get('/products', [ProductController::class, 'index'])->name('frontend.products');
-// Route::get('/product/{id}', [ProductController::class, 'show'])->name('product-info');
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
-//Route::get('/flash-sale', [ProductController::class, 'index'])->name('flash-sale');
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+//Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/frontend/product-info/{id}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/category', [CategoryController::class, 'category'])->name('category');
 Route::get('/frontend/blogs', [BlogController::class, 'blogs'])->name('blogs');
@@ -25,8 +38,7 @@ Route::get('/frontend/blogs-details', [BlogController::class, 'blogsDetail'])->n
 Route::get('/frontend/product-sidebar', [ShopController::class, 'shop'])->name('product-sidebar');
 Route::get('/frontend/contact-us', [ContactController::class, 'contactUs']);
 Route::get('/frontend/user-profile', [UserDashboardController::class, 'userProfile']);
-Route::get('/frontend/about', function () {return view('frontend.about');
-})->name('about');
+Route::get('/frontend/about', function () {return view('frontend.about');})->name('about');
 
 Route::get('/frontend/wishlist', function () {return view('frontend.wishlist');
 })->name('wishlist');
@@ -36,6 +48,9 @@ Route::get('/frontend/cart', function () {return view('frontend.cart');
 })->name('cart');
 Route::get('/frontend/product-info', function () {return view('frontend.product-info');
 })->name('product-info');
+
+// Route::get('frontend/product-info/{id}', [ProductController::class, 'show'])->name('product.show');
+
 Route::get('/frontend/product-sidebar', function () {return view('frontend.product-sidebar');
 })->name('product-sidebar');
 Route::get('/frontend/terms', function () {return view('frontend.terms');
@@ -52,23 +67,11 @@ Route::get('/frontend/seller-sidebar', function () {return view('frontend.seller
 })->name('seller-sidebar');
 Route::get('/frontend/become-vendor', function () {return view('frontend.become-vendor');
 })->name('become-vendor');
-// Route::get('/category', [HomeController::class, 'category'])->name('category');
 
-// Route::get('/index', [CategoryController::class, 'category'])->name('category');
 Route::get('/shop',function(){return view('frontend.product-sidebar');
 })->name('shop');
 
 
-
-
-
-
-
-
-
-// Route::get('/', function () {
-//     return view('home');
-// });
 Route::get('/payment-form', function () {
     return view('payment-form');
 })->name('payment-form');

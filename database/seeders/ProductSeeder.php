@@ -36,13 +36,13 @@ class ProductSeeder extends Seeder
                 'expiry_date' => '2026-01-01',
                 'modify_date' => '2025-01-01',
                 'tax_type' => 'NonTaxable',
-                'featured_product' => true,
+                'featured_product' => true,// for top flash sale
                 'discount_type' => 'percentage',
                 'discount_value' => 10,
-                'rating' => 4.5,
+                'rating' => 4.5, //rating
                 'top_selling' => true,  // Add top selling flag
-                'seller_of_the_week' => true, // Add seller of the week flag
-                'flash_sale' => true, // Add flash sale flag
+                'seller_of_the_week' => true, // Add seller of the week flag for "best sell in this week"
+                'flash_sale' => true, // Add flash sale flag for "lower flash sale"
                 'sale_start_time' => '2025-01-10 00:00:00',
                 'sale_end_time' => '2025-01-15 23:59:59',
             ],
@@ -64,7 +64,7 @@ class ProductSeeder extends Seeder
                 'expiry_date' => '2026-02-01',
                 'modify_date' => '2025-02-01',
                 'tax_type' => 'taxable',
-                'featured_product' => false,
+                'featured_product' => false,//top flash sale
                 'discount_type' => 'fixed',
                 'discount_value' => 20,
                 'rating' => 3.5,
@@ -179,7 +179,7 @@ class ProductSeeder extends Seeder
                 'expiry_date' => '2026-02-01',
                 'modify_date' => '2025-02-01',
                 'tax_type' => 'taxable',
-                'featured_product' => false,
+                'featured_product' => false,// top flash sale
                 'discount_type' => 'fixed',
                 'discount_value' => 20,
                 'rating' => 5.5,

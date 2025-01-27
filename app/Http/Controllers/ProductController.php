@@ -15,6 +15,7 @@ class ProductController extends Controller
 
         // Fetch seller of the week products
         $sellerOfTheWeekProducts = Product::where('seller_of_the_week', true)->get();
+        
         $flashSale = Product::where('flash_sale', true)->get();
 
         // Fetch flash sale products
@@ -36,11 +37,13 @@ class ProductController extends Controller
     }
 
     // Show details of a single product
-    public function show($id)
-    {
-        $product = Product::findOrFail($id);
+    // Show details of a single product
+public function show($id)
+{
+    
+    $product = Product::findOrFail($id); // This will return a single product or throw 404 if not found
+    $sellerOfTheWeekProducts = Product::where('seller_of_the_week', true)->get();
+    return view('frontend.product-info', compact('product','sellerOfTheWeekProducts')); // Pass the product variable to the view
+}
 
-        // Return product details to the frontend.product view
-        return view('frontend.product', compact('product'));
-    }
 }

@@ -1068,7 +1068,7 @@
                                     </span>
                                 </a>
                                 <ul class="header-sub-menu">
-                                    <li><a href="{{url('frontend/product-info')}}">Product-details</a></li>
+                                    <li><a href="{{url('frontend/product-sidebar')}}">Product-details</a></li>
                                     <li><a href="{{url('frontend/privacy')}}">Privacy Policy</a></li>
                                     <li><a href="{{url('frontend/terms')}}">Terms & Condition</a></li>
                                     <li><a href="{{url('frontend/faq')}}">FAQ</a></li>
