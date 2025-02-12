@@ -21,8 +21,16 @@ Route::get('/frontend/empty-cart', function () {return view('frontend.empty-cart
 })->name('empty-cart');
 Route::get('/frontend/checkout', function () {return view('frontend.checkout');
 })->name('checkout');
+// Route::get('/categories', [CategoryController::class, 'category'])->name('categories');
+// Route::get('/categories', [CategoryController::class, 'category'])->name('index'); // Main category page
+// Route::get('/category/{id}', [CategoryController::class, 'show'])->name('product-sidebar'); // Category product list
+Route::get('/categories', [CategoryController::class, 'category'])->name('categories');
+Route::get('/category/{id}', [CategoryController::class, 'showSidebar'])->name('category.sidebar');
+Route::get('/category/{categoryName}', [CategoryController::class, 'showByCategoryName'])->name('product-sidebar');
+//Route::get('/filter-products', [ProductController::class, 'filterProducts'])->name('filter.products');
 
 
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product-info');
 
 
 Route::get('/', [HomeController::class, 'index'])->name('index'); // Home route

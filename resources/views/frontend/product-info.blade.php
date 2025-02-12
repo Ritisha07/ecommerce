@@ -147,7 +147,7 @@
 
                             <div class="product-quantity">
                                 <div class="quantity-wrapper">
-                                    <div class="quantity">
+                                    <!-- <div class="quantity">
                                         <span class="minus">
                                             -
                                         </span>
@@ -157,8 +157,8 @@
                                         <span class="plus">
                                             +
                                         </span>
-                                    </div>
-                                    <div class="wishlist">
+                                    </div> -->
+                                    <!-- <div class="wishlist">
                                         <span>
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -168,7 +168,7 @@
                                                     stroke-linecap="square" />
                                             </svg>
                                         </span>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <span>
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
@@ -188,7 +188,8 @@
                             </div>
                             <hr>
                             <div class="product-details">
-                                <p class="category">Category : <span class="inner-text">{{ $product->category->name }}</span></p>
+                                <!-- <p class="category">Category : <span class="inner-text">{{ $product->category->name }}</span></p> -->
+                                <p class="category">Category : <span class="inner-text">{{ $product->name }}</span></p>
                                 <p class="tags">slug : <span class="inner-text">{{ $product->slug }}</span></p>
                                 <p class="sku">SKU : <span class="inner-text">{{ $product->sku }}</span></p>
                             </div>

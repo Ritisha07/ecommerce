@@ -41,19 +41,19 @@
         <div class="section-title">
             <h5>Our Categories</h5>
             <!-- <a href="{{ route('index') }}" class="view">View All</a> -->
-            <a href="{{ route('index') }}" class="view">View All</a>
+            <a href="{{ route('categories') }}" class="view">View All</a>
 
         </div>
         <div class="category-section">
             @foreach ($categories as $category)
                 <div class="product-wrapper" data-aos="fade-right" data-aos-duration="100">
                     <div class="wrapper-img">
-                        <a href="{{ route('product-sidebar', ['id' => $category->id]) }}">
+                        <a href="{{ route('category.sidebar', ['id' => $category->id]) }}">
                             <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}">
                         </a>
                     </div>
                     <div class="wrapper-info">
-                        <a href="{{ route('product-sidebar', ['id' => $category->id]) }}" class="wrapper-details">
+                        <a href="{{ route('category.sidebar', ['id' => $category->id]) }}" class="wrapper-details">
                             {{ $category->name }}
                         </a>
                     </div>

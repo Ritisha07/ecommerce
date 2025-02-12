@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\category;
+
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -43,7 +45,34 @@ public function show($id)
     
     $product = Product::findOrFail($id); // This will return a single product or throw 404 if not found
     $sellerOfTheWeekProducts = Product::where('seller_of_the_week', true)->get();
-    return view('frontend.product-info', compact('product','sellerOfTheWeekProducts')); // Pass the product variable to the view
+    $category = Category::findOrFail($product->category_id); 
+    return view('frontend.product-info', compact('product','sellerOfTheWeekProducts','category')); // Pass the product variable to the view
+
+    
 }
+public function filterProducts(Request $request)
+    {
+        $query = Product::query();
+
+        // Filter by selected categories
+        if ($request->has('categories') && !empty($request->categories)) {
+            $query->whereIn('category_id', $request->categories);
+        }
+
+        // Filter by selected brands
+        if ($request->has('brands') && !empty($request->brands)) {
+            $query->whereIn('brand_id', $request->brands);
+        }
+
+        // Filter by price range
+        if ($request->has('min_price') && $request->has('max_price')) {
+            $query->whereBetween('price', [$request->min_price, $request->max_price]);
+        }
+
+        // Get the filtered products
+        $products = $query->get();
+
+        return response()->json(['products' => $products]);
+    }
 
 }

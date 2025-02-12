@@ -22,6 +22,7 @@ class Product extends Model
         return $this->belongsTo(Brand::class);
     }
 
+    // Define the belongsTo relationship with category
     public function category()
     {
         return $this->belongsTo(Category::class);

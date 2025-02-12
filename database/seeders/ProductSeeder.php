@@ -26,6 +26,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 90.00,
                 'mrp' => 110.00,
                 'description' => 'This is stylist black bags for women',
+                // 'category_name => bag',
                 'category_id' => Category::first()->id, // Using first category as an example
                 'brand_id' => Brand::first()->id, // Using first brand as an example
                 'seller_name' => 'Seller 1',
@@ -54,7 +55,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 180.00,
                 'mrp' => 220.00,
                 'description' => 'This is confortable black shoes for men',
-                'category_id' => Category::skip(1)->first()->id, // Using second category as an example
+                'category_id' => 10,
                 'brand_id' => Brand::skip(1)->first()->id, // Using second brand as an example
                 'seller_name' => 'Seller 2',
                 'status' => 'inactive',
@@ -83,7 +84,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 1800.00,
                 'mrp' => 1850.00,
                 'description' => 'This is a beaytiful red dress',
-                'category_id' => Category::skip(1)->first()->id, // Using second category as an example
+                'category_id' => 5,
                 'brand_id' => Brand::skip(1)->first()->id, // Using second brand as an example
                 'seller_name' => 'Seller 3',
                 'status' => 'inactive',
@@ -111,7 +112,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 1800.00,
                 'mrp' => 2200.00,
                 'description' => 'This is stylist black watch for men',
-                'category_id' => Category::skip(1)->first()->id, // Using second category as an example
+                'category_id' => 8,
                 'brand_id' => Brand::skip(1)->first()->id, // Using second brand as an example
                 'seller_name' => 'Seller 4',
                 'status' => 'inactive',
@@ -140,7 +141,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 1400.00,
                 'mrp' => 1550.00,
                 'description' => 'This is stylist glasses',
-                'category_id' => Category::skip(1)->first()->id, // Using second category as an example
+                'category_id' => 9,
                 'brand_id' => Brand::skip(1)->first()->id, // Using second brand as an example
                 'seller_name' => 'Seller 2',
                 'status' => 'inactive',
@@ -169,7 +170,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 100.00,
                 'mrp' => 1250.00,
                 'description' => 'This is stylist sweater',
-                'category_id' => Category::skip(1)->first()->id, 
+                'category_id' => 7, 
                 'brand_id' => Brand::skip(1)->first()->id,
                 'seller_name' => 'Seller 6',
                 'status' => 'active',
