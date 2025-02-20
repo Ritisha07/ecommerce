@@ -88,7 +88,7 @@
                                             <input type="text" placeholder="Search Products.........">
                                             <div class="divider"></div>
                                             <button type="button">All Categories</button>
-                                            <a href="{{url('frontend#')}}" class="shop-btn">Search</a>
+                                            <a href="{{url('/')}}" class="shop-btn">Search</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1099,9 +1099,14 @@
                                     <span class="list-text">Contact</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{url('payment-form')}}">
+                            <!-- <li>
+                                <a href="{{route('payment')}}">
                                     <span class="list-text">payment</span>
+                                </a>
+                            </li> -->
+                            <li>
+                                <a href="{{url('login')}}">
+                                    <span class="list-text">Login</span>
                                 </a>
                             </li>
                         </ul>

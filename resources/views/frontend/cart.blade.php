@@ -338,7 +338,8 @@
                                 </td>
                                 <td class="table-wrapper">
                                     <div class="table-wrapper-center">
-                                        <h5 class="heading">${{ number_format($item['regular_price'], 2) }}</h5>
+                                        <h5 class="heading">${{ number_format($item['sale_price'], 2) }}</h5>
+                                                                           
                                     </div>
                                 </td>
                                 <td class="table-wrapper">
@@ -356,7 +357,7 @@
                                 </td>
                                 <td class="table-wrapper wrapper-total">
                                     <div class="table-wrapper-center">
-                                        <h5 class="heading">${{ number_format($item['regular_price'] * $item['quantity'], 2) }}</h5>
+                                        <h5 class="heading">${{ number_format($item['sale_price'] * $item['quantity'], 2) }}</h5>
                                     </div>
                                 </td>
                                 <td class="table-wrapper">
@@ -389,7 +390,7 @@
         <div class="wishlist-btn cart-btn">
                 <a href="{{route('empty-cart')}}" class="clean-btn">Clear Cart</a>
                 
-                <a href="{{route('checkout')}}" class="shop-btn">Proceed to Checkout</a>
+                <a href="{{route('payment')}}" class="shop-btn">Proceed to Checkout</a>
             </div>
 
     </div>

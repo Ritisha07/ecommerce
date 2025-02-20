@@ -22,7 +22,13 @@
 html {
   font-size: 10px;
   overflow-x: hidden;
+  
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
+
+
 
 body {
   margin: 0;
@@ -3071,43 +3077,67 @@ table .ticket-row:hover {
   justify-content: center;
   gap: 0px;
 }
+
+.login-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+}
+
 .login-section .review-form {
   width: 51.2rem;
-  height: 63rem;
   background-color: #FFFFFF;
   padding: 4rem;
   border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;  /* Ensure form items are stacked vertically */
+  justify-content: space-between;  /* Space out the form elements */
+  min-height: auto;  /* Let the form grow based on content */
+  position: relative;
 }
+
 .login-section .review-form .comment-title {
   text-align: center;
-  margin-top: 5rem;
+  margin-top: 2rem;  /* Adjusted top margin */
 }
+
 .login-section .review-form .review-inner-form {
   display: block;
   width: 100%;
 }
+
 .login-section .review-form .shop-btn {
   width: 100%;
   margin: 0 0 2rem 0;
 }
+
 .login-section .review-form .shop-btn::after {
   display: none;
 }
+
 .login-section .review-form .shop-account {
   color: #797979;
   font-size: 1.3rem;
+  text-align: center;  /* Center the text */
+  margin-top: 1.5rem;  /* Give some space above the text */
 }
+
 .login-section .review-form .shop-account a {
   font-size: 1.3rem;
   margin-left: 0.5rem;
   font-weight: 400;
 }
-@media (max-width:767px) {
+
+@media (max-width: 767px) {
   .login-section .review-form {
     padding: 2rem;
-    height: auto;
+    width: 100%;
   }
 }
+
+
 
 .checkbox {
   display: flex;

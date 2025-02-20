@@ -277,7 +277,12 @@
                                     </svg>
                                 </span>
                                 <span class="text">
-                                    Logout
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="text">
+                                        Logout
+                                    </button>
+                                </form>
                                 </span>
                             </a>
                         </div>
@@ -291,8 +296,10 @@
                             aria-labelledby="v-pills-home-tab" tabindex="0">
                             <div class="user-profile">
                                 <div class="user-title">
-                                    <p class="paragraph">Hello, Sajjad</p>
-                                    <h5 class="heading">Welcome to your Profile </h5>
+                                   <div class="user-title">
+                                        <p class="paragraph">Hello,{{ auth()->user()->profile->first_name ?? 'N/A' }} {{ auth()->user()->profile->last_name ?? 'N/A' }}</p>
+                                        <h5 class="heading">Welcome to your Profile</h5>
+                            </div>
                                 </div>
                                 <div class="profile-section">
                                     <div class="row g-5">
@@ -374,14 +381,14 @@
                                                             <p>Email:</p>
                                                             <p>Phone:</p>
                                                             <p>City:</p>
-                                                            <p>Zip:</p>
+                                                           
                                                         </div>
                                                         <div class="info-details">
-                                                            <p>Sajjad</p>
-                                                            <p>demoemail@gmail.com</p>
-                                                            <p>023 434 54354</p>
-                                                            <p>Haydarabad, Rord 34</p>
-                                                            <p>3454</p>
+                                                            <p>{{ auth()->user()->profile->first_name ?? 'N/A'}} {{ auth()->user()->profile->last_name ?? 'N/A' }}</p>
+                                                            <p>{{ auth()->user()->profile->Email ?? 'N/A' }}</p>
+                                                            <p>{{ auth()->user()->profile->phone ?? 'N/A' }}</p>
+                                                            <p>{{ auth()->user()->profile->address ?? 'N/A' }}</p>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>

@@ -11,6 +11,10 @@ class CartController extends Controller
     // Function to add a product to the cart
                 public function addToCart(Request $request, $productId)
             {
+                if (!auth()->check()) {
+                    return redirect()->route('login')->with('message', 'Please login to add product to cart');
+                }
+                
                 $product = Product::find($productId);
                 if (!$product) {
                     return redirect()->back()->with('error', 'Product not found!');
@@ -28,7 +32,7 @@ class CartController extends Controller
                         'id' => $product->id,
                         'name' => $product->name,
                         'image' => $product->image,
-                        'regular_price' => $product->regular_price,
+                        'sale_price' => $product->sale_price,
                         'quantity' => 1
                     ];
                 }

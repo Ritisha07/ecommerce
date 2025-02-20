@@ -6,7 +6,7 @@ use Neputer\Facades\Khalti;
 use Illuminate\Http\Request;
 use App\Models\Order; 
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth; // Import Auth facade if not already
+use Illuminate\Support\Facades\Auth; 
 use RemoteMerge\Esewa\Client;
 use RemoteMerge\Esewa\Config as EsewaConfig;
 use Illuminate\Support\Facades\Redirect;
@@ -15,7 +15,6 @@ use Illuminate\Support\Str;
 use App\Models\Payment;
 
 require '../vendor/autoload.php';
-
 
 class PaymentController extends Controller
 {
@@ -43,7 +42,7 @@ class PaymentController extends Controller
 
     public function proceedPayment(Request $request)
     {
-        try{
+        try {
             $validated = $request->validate([
                 'name' => 'required|string|max:255',
                 'email' => 'required|email',
@@ -52,9 +51,6 @@ class PaymentController extends Controller
     
             // Attach `user_id` from the currently authenticated user
             $validated['user_id'] = Auth::id();
-    
-    
-    
     
             // Generate unique product ID and retrieve amount from request
             $pid = uniqid();
@@ -90,74 +86,44 @@ class PaymentController extends Controller
                 'success_url' => $successUrl,
                 'failure_url' => $failureUrl,
             ]);
-            // config for development
-            $config = new EsewaConfig([
-                'success_url' => $successUrl,
-                'failure_url' => $failureUrl,
-            ]);
-            
-    
-            // initialize eSewa client
-            $esewa = new Client([
-                'merchant_code' => 'EPAYTEST',
-                'success_url' => $successUrl,
-                'failure_url' => $failureUrl,
-            ]);
-            // Trigger payment
-            $esewa->payment($pid, $amount, 0, 0, );
-        }
-    
-         catch(\Exception $e) {
-            $msg = 'Failed';
-            $msg1 = 'Failed' .$e->getMessage();
-            return view('thank', compact('msg', 'msg1'));
 
+            // Trigger payment
+            $esewa->payment($pid, $amount, 0, 0);
+        } catch(\Exception $e) {
+            $msg = 'Failed';
+            $msg1 = 'Failed: ' . $e->getMessage();
+            return view('thank', compact('msg', 'msg1'));
         }
-        
     }
 
     public function successPay()
-        {
-            // // Check if required parameters exist
-            // if (!isset($_GET['oid']) || !isset($_GET['refid']) || !isset($_GET['amt'])) {
-            //     return redirect()->back()->with('error', 'Missing payment confirmation details.');
-            // }
-    
-            $pid = $_GET['oid'];
-            
-            $amt = $_GET['amt'];
-    
-            // Find the order based on product_id
-            $order = Order::where('product_id', $pid)->first();
-    
-            if (!$order) {
-                return redirect()->back()->with('error', 'Order not found.');
-            }
-    
-            // Update order status to verified
-            $update_status = $order->update([
-                'esewa_status' => 'verified',
-                'updated_at' => Carbon::now(),
-            ]);
-    
-            if ($update_status) {
-                $msg = 'Success';
-                $msg1 = 'Payment successful';
-                return view('thank', compact('msg', 'msg1'));
-            }
+    {
+        $pid = $_GET['oid'];
+        $amt = $_GET['amt'];
 
+        // Find the order based on product_id
+        $order = Order::where('product_id', $pid)->first();
+
+        if (!$order) {
+            return redirect()->back()->with('error', 'Order not found.');
         }
+
+        // Update order status to verified
+        $update_status = $order->update([
+            'esewa_status' => 'verified',
+            'updated_at' => Carbon::now(),
+        ]);
+
+        if ($update_status) {
+            $msg = 'Success';
+            $msg1 = 'Payment successful';
+            return view('thank', compact('msg', 'msg1'));
+        }
+    }
 
     public function failurePay()
     {
-        // // Check if required parameters exist
-        // if (!isset($_GET['oid']) || !isset($_GET['refid']) || !isset($_GET['amt'])) {
-        //     return redirect()->back()->with('error', 'Missing payment confirmation details.');
-        // }
-
         $pid = $_GET['pid'];
-        // $refid = $_GET['refid'];
-        // $amt = $_GET['amt'];
 
         // Find the order based on product_id
         $order = Order::where('product_id', $pid)->first();
@@ -179,56 +145,53 @@ class PaymentController extends Controller
         }
     }
 
-    //khati
+//khalti
     public function pay()
     {
-        // public function pay(Request $request)
-        // {
-        //     // Retrieve the grand total (in Rs) from the request
-        //     $grand_total_in_rupees = $request->get('grand_total'); 
+        // Retrieve the cart from the session
+        $cart = session()->get('cart', []);
         
-            
-        
-        //     // Convert the grand total to paisa (1 Rs = 100 paisa)
-        //     $amount = $grand_total_in_rupees * 100; // Convert to paisa
-        
-            // Define the return URL for verification
-            $return_url = route('khalti.verify');
-            $purchase_order_id = Str::uuid(); // Generate a unique transaction ID
-            $purchase_order_name = "your_order_name"; // You can customize this name if needed
-            $amount = 1000; 
-            
-            try {
-                // Initiate the payment with Khalti
-                $response = Khalti::initiate($return_url, $purchase_order_id, $purchase_order_name, $amount);
-        
-                // Check if the response contains the payment URL
-                if (isset($response->payment_url)) {
-                    // Use firstOrCreate to handle duplicate entries gracefully
-                    KhaltiPayment::firstOrCreate(
-                        ['purchase_order_id' => $purchase_order_id],
-                        [
-                            'purchase_order_name' => $purchase_order_name,
-                            'amount' => $amount,
-                            'return_url' => $return_url,
-                            'payment_url' => $response->payment_url,
-                        ]
-                    );
-        
-                    // Redirect to the payment URL
-                    return Redirect::to($response->payment_url);
-                } else {
-                    // If payment_url is missing, redirect to home with an error message
-                    return redirect()->route('thank')->withErrors('Payment URL is missing!');
-                }
-            } catch (\Exception $e) {
-                // Handle exceptions gracefully
-                return redirect()->route('thank')->withErrors('Error: ' . $e->getMessage());
-            }
+        // Calculate the total amount
+        $amount = collect($cart)->sum(fn($item) => $item['sale_price'] * $item['quantity']);
+        $amount = $amount * 100;
+        // If cart is empty, return with an error
+        if ($amount <= 0) {
+            return redirect()->route('cart.show')->withErrors('Your cart is empty!');
         }
-public function verify(Request $request)
+
+        $return_url = route('khalti.verify');
+        $purchase_order_id = Str::uuid(); // Generate a unique transaction ID
+        $purchase_order_name = "Cart Purchase"; // Customize as needed
+
+        try {
+            // Initiate the payment with Khalti
+            $response = Khalti::initiate($return_url, $purchase_order_id, $purchase_order_name, $amount);
+
+            // Check if the response contains the payment URL
+            if (isset($response->payment_url)) {
+                // Store payment details
+                KhaltiPayment::firstOrCreate(
+                    ['purchase_order_id' => $purchase_order_id],
+                    [
+                        'purchase_order_name' => $purchase_order_name,
+                        'amount' => $amount,
+                        'return_url' => $return_url,
+                        'payment_url' => $response->payment_url,
+                    ]
+                );
+
+                // Redirect to the payment URL
+                return Redirect::to($response->payment_url);
+            } else {
+                return redirect()->route('cart.show')->withErrors('Payment URL is missing!');
+            }
+        } catch (\Exception $e) {
+            return redirect()->route('cart.show')->withErrors('Error: ' . $e->getMessage());
+        }
+    }
+
+    public function verify(Request $request)
 {
-    // Retrieve the pidx from the request
     $pidx = $request->get('pidx');
 
     if (!$pidx) {
@@ -236,11 +199,12 @@ public function verify(Request $request)
     }
 
     try {
-        // Look up the payment using Khalti's API
         $response = Khalti::lookup($pidx);
+        \Log::info('Khalti API Response:', (array) $response);
 
-        // Log the raw response for debugging
-        \Log::info('Khalti API Response: ', (array) $response);
+        // Log the product_id if present
+        $productId = isset($response['product_id']) ? $response['product_id'] : null;
+        \Log::info('Product ID:', [$productId]);
 
         $purchaseOrderId = is_array($response)
             ? ($response['purchase_order_id'] ?? null)
@@ -248,26 +212,24 @@ public function verify(Request $request)
 
         if (!$purchaseOrderId) {
             return response()->json(['error' => 'Invalid response from Khalti'], 400);
-            // return redirect()->route('welcome')->withErrors('Error: ' . $e->getMessage());
         }
 
         // Find the payment in the database
         $payment = KhaltiPayment::where('purchase_order_id', $purchaseOrderId)->first();
 
         if ($payment) {
-            // Update the payment record with the Khalti response details
             $payment->update([
                 'status' => is_array($response) ? $response['status'] : $response->status,
+                'product_id' => $productId, // Add product_id to database if needed
             ]);
         }
 
-        // Redirect with success message after payment verification
-        return redirect()->route('home')->with('success', 'Payment was successful!');
+        return redirect()->route('index')->with('success', 'Payment was successful!');
     } catch (\Exception $e) {
-        // Handle exceptions gracefully
-        return response()->json(['error' => $e->getMessage()], 500);
+        \Log::error('Payment verification error: ' . $e->getMessage());
+        return response()->json(['error' => 'An error occurred while processing the payment.'], 500);
     }
 }
 
-
 }
+

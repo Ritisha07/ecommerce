@@ -12,18 +12,36 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+
+// Login Routes
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Register Routes
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('create-account');
+Route::post('/register', [RegisterController::class, 'register']);
+
+// Protected Route (after login)
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+//Route::get('/search', [ProductController::class, 'search'])->name('search');
+
 
 Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'showCart'])->name('cart.show');
 Route::patch('/cart/update/{id}', [CartController::class, 'updateCart'])->name('cart.update');
 Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
-Route::get('/frontend/empty-cart', function () {return view('frontend.empty-cart');
+Route::get('empty-cart', function () {return view('frontend.empty-cart');
 })->name('empty-cart');
 Route::get('/frontend/checkout', function () {return view('frontend.checkout');
 })->name('checkout');
-// Route::get('/categories', [CategoryController::class, 'category'])->name('categories');
-// Route::get('/categories', [CategoryController::class, 'category'])->name('index'); // Main category page
-// Route::get('/category/{id}', [CategoryController::class, 'show'])->name('product-sidebar'); // Category product list
+
 Route::get('/categories', [CategoryController::class, 'category'])->name('categories');
 Route::get('/category/{id}', [CategoryController::class, 'showSidebar'])->name('category.sidebar');
 Route::get('/category/{categoryName}', [CategoryController::class, 'showByCategoryName'])->name('product-sidebar');
@@ -32,6 +50,9 @@ Route::get('/category/{categoryName}', [CategoryController::class, 'showByCatego
 
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product-info');
 
+Route::get('/payment-page', function () {
+    return view('frontend.payment');
+})->name('payment');
 
 Route::get('/', [HomeController::class, 'index'])->name('index'); // Home route
 Route::get('/brands', [BrandController::class, 'showAll'])->name('frontend.brands');

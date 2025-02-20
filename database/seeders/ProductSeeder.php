@@ -27,7 +27,8 @@ class ProductSeeder extends Seeder
                 'mrp' => 110.00,
                 'description' => 'This is stylist black bags for women',
                 // 'category_name => bag',
-                'category_id' => Category::first()->id, // Using first category as an example
+                // 'category_id' => Category::first()->id, // Using first category as an example
+                'category_id' => 1,
                 'brand_id' => Brand::first()->id, // Using first brand as an example
                 'seller_name' => 'Seller 1',
                 'status' => 'active',
@@ -55,7 +56,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 180.00,
                 'mrp' => 220.00,
                 'description' => 'This is confortable black shoes for men',
-                'category_id' => 10,
+                'category_id' => 11,
                 'brand_id' => Brand::skip(1)->first()->id, // Using second brand as an example
                 'seller_name' => 'Seller 2',
                 'status' => 'inactive',

@@ -74,5 +74,16 @@ public function filterProducts(Request $request)
 
         return response()->json(['products' => $products]);
     }
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        
+        if ($query) {
+            $products = Product::where('name', 'LIKE', '%' . $query . '%')->get();
+            return response()->json($products);
+        }
+        
+        return response()->json([]);
+    }
 
 }

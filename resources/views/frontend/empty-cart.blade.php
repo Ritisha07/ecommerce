@@ -48,7 +48,7 @@
             <div class="blog-bradcrum">
                 <span><a href="{{route('index')}}">Home</a></span>
                 <span class="devider">/</span>
-                <span><a href="{{route('#')}}">404 Not Found</a></span>
+                <span><a href="{{route('empty-cart')}}">404 Not Found</a></span>
             </div>
             <div class="blog-item" data-aos="fade-up">
                 <div class="cart-img">
@@ -56,7 +56,7 @@
                 </div>
                 <div class="cart-content">
                     <p class="content-title">Empty! You don’t have any Product in your cart</p>
-                    <a href="{{route('product-sidebar')}}" class="shop-btn">Back to Shop</a>
+                    <a href="{{route('')}}" class="shop-btn">Back to Shop</a>
                 </div>
             </div>
         </div>

@@ -83,6 +83,13 @@
                                 </a>
                                 <p class="text-success fw-semibold mt-1">${{ $product->regular_price }}</p>
                             </div>
+                            <div class="product-cart-btn">
+                            <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="product-btn">Add to Cart</button>
+                            </form>
+                        </div>
+                            
                         </div>
                     </div>
                 @endforeach
