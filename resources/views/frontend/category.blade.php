@@ -1,3 +1,3 @@
 <!-- <?php
-    return redirect()->route('home') . '#category';
+    return redirect()->route('index') . '#category';
 ?> -->

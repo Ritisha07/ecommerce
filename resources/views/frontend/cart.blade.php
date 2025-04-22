@@ -396,6 +396,15 @@
     </div>
 
 </section>
+<script>
+    fetch('/verify-payment', { method: 'POST' })
+  .then(response => response.json())
+  .then(data => {
+      if (data.success) {
+          window.location.href = data.redirect_url;
+      }
+  });
+</script>
 
 @endsection
 

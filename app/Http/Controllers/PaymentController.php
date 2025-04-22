@@ -190,46 +190,89 @@ class PaymentController extends Controller
         }
     }
 
-    public function verify(Request $request)
+//     public function verify(Request $request)
+// {
+//     $pidx = $request->get('pidx');
+
+//     if (!$pidx) {
+//         return response()->json(['error' => 'Payment ID (pidx) is missing'], 400);
+//     }
+
+//     try {
+//         $response = Khalti::lookup($pidx);
+//         \Log::info('Khalti API Response:', (array) $response);
+
+//         // Log the product_id if present
+//         $productId = isset($response['product_id']) ? $response['product_id'] : null;
+//         \Log::info('Product ID:', [$productId]);
+
+//         $purchaseOrderId = is_array($response)
+//             ? ($response['purchase_order_id'] ?? null)
+//             : ($response->purchase_order_id ?? null);
+
+//         if (!$purchaseOrderId) {
+//             return response()->json(['error' => 'Invalid response from Khalti'], 400);
+//         }
+
+//         // Find the payment in the database
+//         $payment = KhaltiPayment::where('purchase_order_id', $purchaseOrderId)->first();
+
+//         if ($payment) {
+//             $payment->update([
+//                 'status' => is_array($response) ? $response['status'] : $response->status,
+//                 'product_id' => $productId, // Add product_id to database if needed
+//             ]);
+//         }
+
+//         return redirect()->route('index')->with('success', 'Payment was successful!');
+//     } catch (\Exception $e) {
+//         \Log::error('Payment verification error: ' . $e->getMessage());
+//         return response()->json(['error' => 'An error occurred while processing the payment.'], 500);
+//     }
+// }
+public function verify(Request $request)
 {
     $pidx = $request->get('pidx');
 
     if (!$pidx) {
-        return response()->json(['error' => 'Payment ID (pidx) is missing'], 400);
+        return redirect()->route('index')->withErrors('Payment ID (pidx) is missing.');
     }
 
     try {
         $response = Khalti::lookup($pidx);
         \Log::info('Khalti API Response:', (array) $response);
 
-        // Log the product_id if present
-        $productId = isset($response['product_id']) ? $response['product_id'] : null;
+        $productId = $response['product_id'] ?? null;
         \Log::info('Product ID:', [$productId]);
 
-        $purchaseOrderId = is_array($response)
-            ? ($response['purchase_order_id'] ?? null)
-            : ($response->purchase_order_id ?? null);
+        $purchaseOrderId = $response['purchase_order_id'] ?? null;
 
         if (!$purchaseOrderId) {
-            return response()->json(['error' => 'Invalid response from Khalti'], 400);
+            return redirect()->route('index')->withErrors('Invalid response from Khalti.');
         }
 
-        // Find the payment in the database
+        // Find and update the payment in the database
         $payment = KhaltiPayment::where('purchase_order_id', $purchaseOrderId)->first();
 
         if ($payment) {
             $payment->update([
-                'status' => is_array($response) ? $response['status'] : $response->status,
-                'product_id' => $productId, // Add product_id to database if needed
+                'status' => $response['status'] ?? 'unknown',
+                'product_id' => $productId,
             ]);
         }
 
-        return redirect()->route('index')->with('success', 'Payment was successful!');
+        // return redirect()->route('index')->with('success', 'Payment was successful!');
+        return response()->json([
+            'success' => true,
+            'redirect_url' => route('index')
+        ]);
+        
     } catch (\Exception $e) {
         \Log::error('Payment verification error: ' . $e->getMessage());
-        return response()->json(['error' => 'An error occurred while processing the payment.'], 500);
+        return redirect()->route('index')->withErrors('An error occurred while processing the payment.');
     }
 }
+
 
 }
 

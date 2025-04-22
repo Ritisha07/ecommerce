@@ -84,12 +84,18 @@
                                         </span>
                                     </div>
                                     <div class="wrapper-main">
-                                        <div class="search-section">
+                                     <!-- <form action="{{ route('category') }}" method="GET"> 
+                                        <input type="text" name="query" placeholder="Search Products........." required>
+                                        <div class="divider"></div>
+                                        <button type="submit">Search</button>
+                                    </form> -->
+                                    <div class="search-section">
                                             <input type="text" placeholder="Search Products.........">
                                             <div class="divider"></div>
                                             <button type="button">All Categories</button>
                                             <a href="{{url('/')}}" class="shop-btn">Search</a>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -282,6 +288,12 @@
                                     </svg>
                                 </span>
                             </a>
+                            @if (auth()->check()) <!-- Check if the user is logged in -->
+                                <span >{{ auth()->user()->name }}</span> <!-- Display the user's name -->
+                            @else
+                                <span>Guest</span> <!-- Show "Guest" if the user is not logged in -->
+                            @endif
+                                                
                         </div>
                     </div>
                 </div>
@@ -1094,6 +1106,7 @@
                                     <span class="list-text">User Dashboard</span>
                                 </a>
                             </li>
+
                             <li>
                                 <a href="{{url('frontend/contact-us')}}">
                                     <span class="list-text">Contact</span>

@@ -385,7 +385,7 @@
                                                         </div>
                                                         <div class="info-details">
                                                             <p>{{ auth()->user()->profile->first_name ?? 'N/A'}} {{ auth()->user()->profile->last_name ?? 'N/A' }}</p>
-                                                            <p>{{ auth()->user()->profile->Email ?? 'N/A' }}</p>
+                                                            <p>{{ auth()->user()->email ?? 'N/A' }}</p>
                                                             <p>{{ auth()->user()->profile->phone ?? 'N/A' }}</p>
                                                             <p>{{ auth()->user()->profile->address ?? 'N/A' }}</p>
                                                             
@@ -454,7 +454,7 @@
                                                     <label for="region" class="form-label">Country*</label>
                                                     <select id="region" class="form-select">
                                                         <option>Choose...</option>
-                                                        <option>Bangladesh</option>
+                                                        <option>Nepal</option>
                                                         <option>United States</option>
                                                         <option>United Kingdom</option>
                                                     </select>
@@ -528,15 +528,16 @@
                                 <div class="wrapper">
                                     <div class="wrapper-item">
                                         <div class="wrapper-img">
-                                            <img src="./assets/images/homepage-one/payment-img-1.png" alt="payment">
+                                        <img src="{{ asset('images/khalti.png') }}" alt="Khalti Logo" class="h-14 w-24 mr-4 rounded-lg">
                                         </div>
                                         <div class="wrapper-content">
-                                            <h5 class="heading">Dutch Bangl Bank Lmtd</h5>
+                                            <h5 class="heading">Khalti</h5>
                                             <p class="paragraph">Bank **********5535</p>
                                             <p class="verified">Verified</p>
                                         </div>
                                     </div>
-                                    <a href="#" class="shop-btn">Manage</a>
+                                    <a href="{{ route('khalti.pay') }}" id="payment-button" class="shop-btn"> Manage</a>
+                                    
                                 </div>
                                 <hr>
                                 <div class="wrapper">

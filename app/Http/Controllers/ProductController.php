@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\category;
+use App\Models\Brand;
+
 
 use Illuminate\Http\Request;
 
@@ -74,16 +76,69 @@ public function filterProducts(Request $request)
 
         return response()->json(['products' => $products]);
     }
-    public function search(Request $request)
-    {
-        $query = $request->input('query');
-        
-        if ($query) {
-            $products = Product::where('name', 'LIKE', '%' . $query . '%')->get();
-            return response()->json($products);
-        }
-        
-        return response()->json([]);
-    }
+//     public function search(Request $request)
+// {
+//     $query = $request->input('query');
+
+//     // Search for products based on name or category
+//     $products = Product::where('name', 'LIKE', "%$query%")
+//         ->orWhereHas('category', function ($q) use ($query) {
+//             $q->where('name', 'LIKE', "%$query%");
+//         })
+//         ->get();
+
+//     // Fetch flash sale products (no price needed)
+//     $flashSaleProducts = Product::where('flash_sale', true)
+//         ->where('sale_start_time', '<=', now())
+//         ->where('sale_end_time', '>=', now())
+//         ->get();
+
+//     // Fetch categories and brands
+//     $categories = Category::all();
+//     $brands = Brand::all();
+
+//     // Fetch other product collections (optional)
+//     $topSellingProducts = Product::where('top_selling', true)->get();
+//     $sellerOfTheWeekProducts = Product::where('seller_of_the_week', true)->get();
+
+//     return view('frontend.index', compact(
+//         'products', 
+//         'topSellingProducts', 
+//         'sellerOfTheWeekProducts',
+//         'flashSaleProducts', // Pass flash sale products
+//         'categories', 
+//         'brands' // Brands for filtering (if applicable)
+//     ));
+// }
+
+// public function search(Request $request)
+// {
+//     $query = $request->input('query');
+
+//     // Search for product by name, category, or brand
+//     $product = Product::where('name', 'LIKE', "%$query%")
+//         ->orWhereHas('category', function ($q) use ($query) {
+//             $q->where('name', 'LIKE', "%$query%");
+//         })
+//         ->orWhereHas('brand', function ($q) use ($query) {
+//             $q->where('name', 'LIKE', "%$query%");
+//         })
+//         ->first();
+
+//     if ($product) {
+//         // If the product has a brand, redirect to the brand page
+//         if ($product->brand_id) {
+//             return redirect()->route('brand.show', ['id' => $product->brand_id]);
+//         }
+//         // Otherwise, redirect to the category page
+//         return redirect()->route('category.show', ['id' => $product->category_id]);
+//     }
+
+//     // Fetch all brands to avoid the error
+//     $brands = Brand::all(); 
+
+//     return view('search_results', compact('query', 'brands'))->with('error', 'No products found.');
+// }
+
 
 }

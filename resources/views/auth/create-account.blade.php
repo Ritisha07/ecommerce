@@ -89,7 +89,7 @@
                         <label for="country" class="form-label">Country*</label>
                         <select id="country" name="country" class="form-select">
                             <option value="">Choose...</option>
-                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Bangladesh">Nepal</option>
                             <option value="United States">United States</option>
                             <option value="United Kingdom" selected>United Kingdom</option>
                         </select>
@@ -132,10 +132,10 @@
 <script>
 document.getElementById("password").addEventListener("input", function () {
     const password = this.value;
-    const strongPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const strongPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
     
     if (!strongPassword.test(password)) {
-        this.setCustomValidity("Password must be at least 8 characters, include a number, an uppercase, a lowercase, and a special character.");
+        this.setCustomValidity("Password must be at least 8 characters, include a number, an uppercase letter, a lowercase letter, and a special character.");
     } else {
         this.setCustomValidity("");
     }
@@ -150,6 +150,8 @@ document.getElementById("password_confirmation").addEventListener("input", funct
     }
 });
 </script>
+
+
 
 
     @endsection

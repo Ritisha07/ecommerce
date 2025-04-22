@@ -14,6 +14,11 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\WishlistController;
+
+Route::middleware(['auth'])->group(function () {
+   
+});
 
 // Login Routes
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -31,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard');
 });
 //Route::get('/search', [ProductController::class, 'search'])->name('search');
+Route::get('/search', [ProductController::class, 'search'])->name('search');
 
 
 Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
@@ -68,9 +74,14 @@ Route::get('/frontend/product-sidebar', [ShopController::class, 'shop'])->name('
 Route::get('/frontend/contact-us', [ContactController::class, 'contactUs']);
 Route::get('/frontend/user-profile', [UserDashboardController::class, 'userProfile']);
 Route::get('/frontend/about', function () {return view('frontend.about');})->name('about');
+// Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
+// Route::post('/wishlist/add/{product_id}', [WishlistController::class, 'add'])->name('wishlist.add');
+// Route::delete('/wishlist/remove/{product_id}', [WishlistController::class, 'remove'])->name('wishlist.remove');
+Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
+Route::get('/wishlist/add/{product_id}', [WishlistController::class, 'add'])->name('wishlist.add');
+Route::get('/wishlist/delete/{product_id}', [WishlistController::class, 'remove'])->name('wishlist.remove');
+Route::get('/wishlist/remove-all', [WishlistController::class, 'removeAll'])->name('wishlist.removeAll');
 
-Route::get('/frontend/wishlist', function () {return view('frontend.wishlist');
-})->name('wishlist');
 Route::get('/frontend/compaire', function () {return view('frontend.compaire');
 })->name('compaire');
 Route::get('/frontend/cart', function () {return view('frontend.cart');

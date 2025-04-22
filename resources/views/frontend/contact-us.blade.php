@@ -90,7 +90,8 @@
                                                 </div>
                                                 <div class="wrapper-content">
                                                     <h5 class="wrapper-heading">Phone</h5>
-                                                    <p class="paragraph">+1347-430-9510</p>
+                                                    <p class="paragraph">9843710406</p>
+                                                    <p class="paragraph">9818066850</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -120,7 +121,7 @@
                                                 </div>
                                                 <div class="wrapper-content">
                                                     <h5 class="wrapper-heading">Email</h5>
-                                                    <p class="paragraph">User@gmail.com</p>
+                                                    <p class="paragraph">smbizsoft@gmail.com</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -141,15 +142,20 @@
                                                     </div>
                                                     <div class="address-content">
                                                         <h5 class="wrapper-heading">Address</h5>
-                                                        <p class="paragraph">2140 W Thunderbird Rd, Phoenix, Arkansas
-                                                            85023, United States</p>
+                                                        <p class="paragraph">Manamaiju Road,
+                                                        Tarkeshwor 7, Futung</p>
                                                     </div>
                                                 </div>
                                                 <div class="contact-map">
-                                                    <iframe
-                                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.2527999867!2d-74.14448761897569!3d40.6976312333577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1691924335610!5m2!1sen!2sbd"
-                                                        width="524" height="206" allowfullscreen="" loading="lazy"
-                                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                <iframe 
+                                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.527278248372!2d85.3099409!3d27.7571988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1fd4fa6f0983%3A0xdb0438de67575a0f!2sDhalmal+Bus+Stop+Bikey+Chowk!5e0!3m2!1sen!2snp!4v1700000000000"
+                                                    width="524" 
+                                                    height="206" 
+                                                    style="border:0;" 
+                                                    allowfullscreen="" 
+                                                    loading="lazy" 
+                                                    referrerpolicy="no-referrer-when-downgrade">
+                                                </iframe>
                                                 </div>
                                             </div>
                                         </div>
