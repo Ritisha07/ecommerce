@@ -86,6 +86,8 @@ Route::get('/frontend/compaire', function () {return view('frontend.compaire');
 })->name('compaire');
 Route::get('/frontend/cart', function () {return view('frontend.cart');
 })->name('cart');
+Route::post('/cart/add/{productId}', [CartController::class, 'addToCart'])->name('cart.add');
+
 Route::get('/frontend/product-info', function () {return view('frontend.product-info');
 })->name('product-info');
 

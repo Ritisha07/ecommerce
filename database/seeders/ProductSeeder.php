@@ -26,8 +26,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 90.00,
                 'mrp' => 110.00,
                 'description' => 'This is stylist black bags for women',
-                // 'category_name => bag',
-                // 'category_id' => Category::first()->id, // Using first category as an example
+                
                 'category_id' => 1,
                 'brand_id' => Brand::first()->id, // Using first brand as an example
                 'seller_name' => 'Seller 1',
@@ -118,6 +117,35 @@ class ProductSeeder extends Seeder
                 'seller_name' => 'Seller 4',
                 'status' => 'inactive',
                 'image' => 'product/watch.jpg',
+                'model_no' => 'MODEL004',
+                'manufacture' => '2025-12-11',
+                'expiry_date' => '2026-02-26',
+                'modify_date' => '2025-9-01',
+                'tax_type' => 'taxable',
+                'featured_product' => true,
+                'discount_type' => 'fixed',
+                'discount_value' => 20,
+                'rating' => 2.5,
+                // 'new_arrival'=>true,
+                'top_selling' => false,  // Add top selling flag
+                'seller_of_the_week' => true, // Add seller of the week flag
+                'flash_sale' => true, // Add flash sale flag
+                'sale_start_time' => '2025-01-10 00:00:00',
+                'sale_end_time' => '2025-01-15 23:59:59',
+            ],
+            [
+                'name' => 'Smart Watch',
+                'sku' => 'PROD44',
+                'slug' => 'product-5',
+                'regular_price' => 3000.00,
+                'sale_price' => 2800.00,
+                'mrp' => 2200.00,
+                'description' => 'This is stylist black snart watch for men',
+                'category_id' => 8,
+                'brand_id' => Brand::skip(1)->first()->id, // Using second brand as an example
+                'seller_name' => 'Seller 4',
+                'status' => 'inactive',
+                'image' => 'product/watch2.jpg',
                 'model_no' => 'MODEL004',
                 'manufacture' => '2025-12-11',
                 'expiry_date' => '2026-02-26',

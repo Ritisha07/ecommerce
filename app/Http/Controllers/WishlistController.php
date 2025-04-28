@@ -55,37 +55,67 @@ class WishlistController extends Controller
 //         return view('frontend.wishlist', compact('wishlistItems'));
 //     }
 // }
+// Add product to wishlist (only for logged-in users)
+// public function add($product_id)
+// {
+//     // Check if user is logged in
+//     if (!auth()->check()) {
+//         return redirect()->route('login')->with('error', 'You need to login to add items to your wishlist.');
+//     }
+
+//     // Get the wishlist from session
+//     $wishlist = session()->get('wishlist', []);
+
+//     // Check if the product is already in the wishlist
+//     if (!in_array($product_id, $wishlist)) {
+//         // Add product to wishlist if not already added
+//         $wishlist[] = $product_id;
+
+//         // Save the updated wishlist back to session
+//         session()->put('wishlist', $wishlist);
+
+//         return redirect()->route('wishlist')->with('success', 'Product added to wishlist!');
+//     }
+
+//     // Redirect to wishlist with info message
+//     return redirect()->route('wishlist')->with('info', 'This product is already in your wishlist.');
+// }
+// Add product to wishlist (only for logged-in users)
 public function index()
-    {
-        // Retrieve wishlist items from session
-        $wishlist = session()->get('wishlist', []);
-
-        // Fetch product details using product IDs in the wishlist
-        $wishlistItems = Product::whereIn('id', $wishlist)->get();
-
-        return view('frontend.wishlist', compact('wishlistItems'));
-    }
-
-    // Add product to wishlist
-    public function add($product_id)
 {
-    // Get the wishlist from session
+    // Retrieve wishlist items from session
     $wishlist = session()->get('wishlist', []);
 
-    // Check if the product is already in the wishlist
-    if (!in_array($product_id, $wishlist)) {
-        // Add product to wishlist if not already added
-        $wishlist[] = $product_id;
+    // Fetch product details using product IDs in the wishlist
+    $wishlistItems = Product::whereIn('id', $wishlist)->get();
 
-        // Save the updated wishlist back to session
-        session()->put('wishlist', $wishlist);
+    return view('frontend.wishlist', compact('wishlistItems'));
+}
 
-        return redirect()->route('wishlist')->with('success', 'Product added to wishlist!');
+public function add($product_id)
+{
+    // Check if user is logged in
+    if (!auth()->check()) {
+        return redirect()->route('login')->with('error', 'Please log in to add products to your wishlist.');
     }
 
-    // Redirect to wishlist with info message
-    return redirect()->route('wishlist')->with('info', 'This product is already in your wishlist.');
+    // Retrieve wishlist from session (or create an empty one)
+    $wishlist = session()->get('wishlist', []);
+
+    // Check if product is already in the wishlist
+    if (in_array($product_id, $wishlist)) {
+        return redirect()->route('wishlist')->with('info', 'This product is already in your wishlist.');
+    }
+
+    // Add the product ID to the wishlist
+    $wishlist[] = $product_id;
+
+    // Save the updated wishlist back to session
+    session()->put('wishlist', $wishlist);
+
+    return redirect()->route('wishlist')->with('success', 'Product added to wishlist!');
 }
+
     // Remove product from wishlist
     public function remove($product_id)
     {

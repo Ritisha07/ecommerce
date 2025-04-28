@@ -120,7 +120,7 @@
                                     </span>
                                 </a>
 
-                            <a href="{{route('cart')}}" class="cart cart-item">
+                            <a href="{{ route('product.show', ['id' => $product->id]) }}" class="cart cart-item">
                                  <!-- <a href="{{ route('login') }}" class="product-btn"> Add to Cart</a> -->
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
@@ -237,7 +237,7 @@
                         <div class="product-img">
                             <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
                             <div class="product-cart-items">
-                            <a href="{{route('cart')}}" class="cart cart-item">
+                            <a href="{{ route('product.show', ['id' => $product->id]) }}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
@@ -349,7 +349,7 @@
                             <div class="product-img">
                             <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
                                 <div class="product-cart-items">
-                                    <a href="{{route('cart')}}" class="cart cart-item">
+                                    <a href="{{ route('product.show', ['id' => $product->id]) }}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
@@ -586,10 +586,10 @@
                                 
                             <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
                                 <div class="product-cart-items">
-                                    <a href="{{route('cart')}}" class="cart cart-item">
+                                    <a href="{{ route('product.show', ['id' => $product->id]) }}" class="cart cart-item">
                                         <span>
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                                 xmlns="http://www.w3.org/2000/svg">
+                                            xmlns="http://www.w3.org/2000/svg">
                                                 <rect width="40" height="40" rx="20" fill="white"/>
                                                 <path
                                                     d="M12 14.4482V16.5664H12.5466H13.0933V15.3957V14.2204L15.6214 16.7486L18.1496 19.2767L18.5459 18.8759L18.9468 18.4796L16.4186 15.9514L13.8904 13.4232H15.0657H16.2364V12.8766V12.33H14.1182H12V14.4482Z"
